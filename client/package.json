@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "proxy": "http://localhost:4000",
+  "proxy": "http://localhost:8080",
   "private": true,
   "dependencies": {
     "@date-io/moment": "^2.6.0",
