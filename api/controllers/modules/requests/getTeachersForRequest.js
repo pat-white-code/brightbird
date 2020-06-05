@@ -4,9 +4,9 @@ require('dotenv').config()
 const getTeachersForRequest = (req, res, next) => {
   const {requestId, instrumentId, studentAge} = req.body;
   const getTeachers = async () => {
-    let zipRes = await axios.get(`http://${process.env.IP}:3000/api/addresses/request/${requestId}`);
+    let zipRes = await axios.get(`http://${process.env.IP}/api/addresses/request/${requestId}`);
     let zipCode = zipRes.data[0].zip_code;
-    let response = await axios.get(`http://${process.env.IP}:3000/api/teachers/?instId=${instrumentId}&zipCode=${zipCode}&studentAge=${studentAge}`);
+    let response = await axios.get(`http://${process.env.IP}/api/teachers/?instId=${instrumentId}&zipCode=${zipCode}&studentAge=${studentAge}`);
     return response
   }
 

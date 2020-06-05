@@ -22,7 +22,7 @@ const getAvailabilities = async (req, res) => {
   const clientId = req.params.clientId;
 
   const getRequests = async () => {
-    let response = await axios.get(`http://${process.env.IP}:3000/api/requests/client/${clientId}`)
+    let response = await axios.get(`http://${process.env.IP}/api/requests/client/${clientId}`)
     console.log('GET REQUESTS RESPONSE: ', response.data)
     let requests = response.data;
     return requests;
@@ -30,12 +30,12 @@ const getAvailabilities = async (req, res) => {
 
   const getTeachers = async (requests) => {
     let reqWithTeachers = await Promise.all(requests.map(async request => {
-      let response = await axios.get(`http://${process.env.IP}:3000/api/requests/teachers/${request.id}`)
+      let response = await axios.get(`http://${process.env.IP}/api/requests/teachers/${request.id}`)
       console.log('GET TEACHERS RESPONSE: ', response.data)
       // console.log(response.data)
       request.availableTeachers = response.data;
       let teachersWithAvailabilities = await Promise.all(response.data.map(async teacher => {
-        let response = await axios.get(`http://${process.env.IP}:3000/api/availabilities/request/${request.id}/teacher/${teacher.teacher_id}`);
+        let response = await axios.get(`http://${process.env.IP}/api/availabilities/request/${request.id}/teacher/${teacher.teacher_id}`);
         // console.log(request.id)
         teacher.availabilities = response.data
         return teacher;

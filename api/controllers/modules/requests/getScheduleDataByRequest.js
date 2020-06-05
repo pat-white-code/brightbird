@@ -7,10 +7,10 @@ const getScheduleDataByRequest = (req, res, next) => {
   const {requestId, instrumentId, studentAge} = req.body;
   const fetchLessonData = async () => {
     // instrumentId, studentAge
-    let zipRes = await axios.get(`http://${process.env.IP}:3000/api/addresses/request/${requestId}`);
+    let zipRes = await axios.get(`http://${process.env.IP}/api/addresses/request/${requestId}`);
     let zipCode = zipRes.data[0].zip_code;
     console.log('ZIP CODE:    ', zipCode);
-    let response = await axios.get(`http://${process.env.IP}:3000/api/schedules/request/${requestId}?instrumentId=${instrumentId}&zipCode=${zipCode}&studentAge=${studentAge}`);
+    let response = await axios.get(`http://${process.env.IP}/api/schedules/request/${requestId}?instrumentId=${instrumentId}&zipCode=${zipCode}&studentAge=${studentAge}`);
     // let json = await response.json();
     // console.log('json', json)
     // console.log(response)

@@ -9,7 +9,7 @@ const mailRequest = (req, res) => {
   
   async function main() {
     let requestId = req.body.requestId;
-    let response = await fetch(`http://${process.env.IP}:4001/api/requests/${requestId}`);
+    let response = await fetch(`http://${process.env.IP}/api/requests/${requestId}`);
     let json = await response.json();
     let service = json[0];
 

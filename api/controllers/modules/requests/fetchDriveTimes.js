@@ -9,7 +9,7 @@ const fetchDriveTimes = (req, res, next) => {
       origin = origin.replace(/ /g, "+");
       let destination = lesson.request_address.replace(/\d+ /, "");
       destination = destination.replace(/ /g, "+");
-      let response = await axios.get(`http://${process.env.IP}:3000/api/driveTimes?origin=${origin}&destination=${destination}`)
+      let response = await axios.get(`http://${process.env.IP}/api/driveTimes?origin=${origin}&destination=${destination}`)
       if(response.data[0]){
         let driveTimeSeconds = response.data[0].drive_time_seconds;
         lesson.driveTime = Math.ceil(driveTimeSeconds / 60);

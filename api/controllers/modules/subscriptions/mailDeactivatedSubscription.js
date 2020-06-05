@@ -12,7 +12,7 @@ const mailDeactivatedSubscription = (req, res) => {
   async function main() {
     
     let subscriptionId = req.body.subscriptionId || req.params.subscriptionId;
-    let response = await fetch(`http://${process.env.IP}:4001/api/lessons/last/${subscriptionId}`);
+    let response = await fetch(`http://${process.env.IP}/api/lessons/last/${subscriptionId}`);
     let json = await response.json();
     let sub = json[0];
     let studentName = `${sub.student_first_name} ${sub.student_last_name}`;

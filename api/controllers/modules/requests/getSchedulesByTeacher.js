@@ -7,7 +7,7 @@ const getSchedulesByTeacher = (req, res, next) => {
   const availableTeachers = req.body.availableTeachers;
   const updateTeachers = async () => {
     let updatedTeachers = await Promise.all(availableTeachers.map(async teacher => {
-      let response = await axios.get(`http://${process.env.IP}:3000/api/schedules/${teacher.teacher_id}`);
+      let response = await axios.get(`http://${process.env.IP}/api/schedules/${teacher.teacher_id}`);
       teacher.schedules = response.data
       console.log(teacher.schedules);
       return teacher
