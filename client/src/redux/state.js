@@ -10,7 +10,11 @@ const state = {
   requests: [],
   // requestIsLoaded: false,
   availabilities: [],
-  dbUpdatedAt: null
+  dbUpdatedAt: null,
+  teacher: {
+    isLoggedIn: false,
+    id: null
+  }
 }
 
 // const data = [

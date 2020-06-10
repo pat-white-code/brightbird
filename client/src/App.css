@@ -36,3 +36,67 @@
     transform: rotate(360deg);
   }
 }
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 20vw;
+  margin: 25px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 0;
+}
+
+.add-car {
+  background: #4caf50 !important;
+  color: white !important;
+}
+
+.icon {
+  font-size: medium !important;
+}
+
+.icon:hover {
+  cursor: pointer
+}
+
+.text-gray {
+  color: gray
+}
+
+.text-red {
+  color: red
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.nav-list-item {
+  margin: auto 20px;
+}
+
+.car-container {
+  margin: 50px;
+}
+
+.car-paper {
+  padding: 50px;
+}

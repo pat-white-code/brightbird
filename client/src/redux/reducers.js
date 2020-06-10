@@ -61,11 +61,20 @@ const availabilities = (state = [], action) => {
   }
 }
 
+const teacher = (state = {}, action) => {
+  switch(action.type) {
+    case 'TEACHER_LOGS_IN':
+      return {...state, isLoggedIn: true, id: action.payload}
+    default: return state
+  }
+}
+
 export default combineReducers({
   user, 
   requests, 
   // teacherSchedules, 
   // requestIsLoaded,
   availabilities,
-  dbUpdatedAt
+  dbUpdatedAt,
+  teacher
 })

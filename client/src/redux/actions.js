@@ -129,6 +129,10 @@ export const addUserAddress = (userId, address) => {
   }
 }
 
+export const teacherLogin = (teacherId) => {
+  return {type:'TEACHER_LOGS_IN', payload:teacherId}
+}
+
 // export const initialAddress = (addressId) => {
 //   return {type: 'INITIAL_ADDRESS', payload: addressId}
 // }
