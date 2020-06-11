@@ -47,6 +47,12 @@ export default function ButtonAppBar(props) {
               <Link to="/"><Button color="secondary" variant='contained'>Log Out</Button></Link>
             </>
           )}
+          {teacher.isLoggedIn && (
+            <>
+              <Link to="/teacher/instruments"><Button color="inherit">Instruments</Button></Link>
+              <Link to="/"><Button color="secondary" variant='contained'>Log Out</Button></Link>
+            </>
+          )}
           {!user.isLoggedIn && !teacher.isLoggedIn && (
             <>
               <Link to="/teacher/signup"><Button color="inherit" className={classes.menuButton}>Teacher Signup</Button></Link>

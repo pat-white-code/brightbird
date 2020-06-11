@@ -10,6 +10,7 @@ import ViewRequests from './containers/ViewRequests';
 import TeacherSignup from './components/TeacherSignup';
 import TeacherHome from './components/TeacherHome';
 import TeacherLogin from './containers/TeacherLogin';
+import ViewInstruments from './containers/ViewInstruments';
 
 
 const Router = () => {
@@ -25,6 +26,7 @@ const Router = () => {
       <Route path='/teacher/signup' component={TeacherSignup} />
       <Route path='/teacher/home' component={TeacherHome} />
       <Route path='/teacher/login' component={TeacherLogin} />
+      <Route path='/teacher/instruments' component={ViewInstruments} />
     </Switch>
   )
 }
