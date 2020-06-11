@@ -33,12 +33,20 @@ export const teacherCredentials = teacher => {
       let response = await axios.post('/api/teachers/auth/login', teacher);
       let teacherId = response.data.id;
       dispatch(teacherLogin(teacherId))
+      dispatch(getTeacherInstruments(teacherId))
     }
     catch(err) {
       alert(err)
     }
   }
 }
+
+// export const getTeacherInstruments = teacherId => {
+//   return async dispatch => {
+//     try {
+//     }
+//   }
+// }
 
 export const fetchClientRequests = (userId) => {
   return (dispatch) => {

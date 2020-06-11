@@ -13,7 +13,8 @@ const state = {
   dbUpdatedAt: null,
   teacher: {
     isLoggedIn: false,
-    id: null
+    id: null,
+    instruments: []
   }
 }
 
