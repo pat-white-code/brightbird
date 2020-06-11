@@ -41,12 +41,19 @@ export const teacherCredentials = teacher => {
   }
 }
 
-// export const getTeacherInstruments = teacherId => {
-//   return async dispatch => {
-//     try {
-//     }
-//   }
-// }
+export const getTeacherInstruments = teacherId => {
+  return async dispatch => {
+    try {
+      let response = await axios.get(`/api/teachers/${teacherId}/instruments`)
+      console.log('RESPONSE', response)
+      let instruments = response.data
+      dispatch({type:'GETS_TEACHER_INSTRUMENTS', payload:instruments});
+    }
+    catch (err) {
+      alert(err)
+    }
+  }
+}
 
 export const fetchClientRequests = (userId) => {
   return (dispatch) => {

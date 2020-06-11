@@ -1,7 +1,7 @@
 const pool = require('../../../mysql/connection');
 const mysql = require('mysql');
 
-const getTeacherInstruments = (req, res) => {
+const addTeacherInstrument = (req, res) => {
   let sql = `
     SELECT instrument_id, instrument_name, min_age, max_exp
     FROM teacher_instruments

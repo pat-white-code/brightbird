@@ -36,23 +36,6 @@ const dbUpdatedAt = (state = null, action) => {
   }
 }
 
-// const teacherSchedules = (state = [], action) => {
-//   switch(action.type) {
-//     case 'FETCHES_TEACHER_SCHEDULES':
-//       return action.payload;
-//     default: return state
-//   }
-// }
-
-// const requestIsLoaded = (state = false, action) => {
-//   let newState = {...state}
-//   switch(action.type) {
-//     case 'FETCH_SUCCESSFUL':
-//       return newState.requestIsLoaded = true
-//     default: return state;
-//   }
-// }
-
 const availabilities = (state = [], action) => {
   switch(action.type) {
     case 'GETS_AVAILABILITIES':
@@ -65,6 +48,8 @@ const teacher = (state = {}, action) => {
   switch(action.type) {
     case 'TEACHER_LOGS_IN':
       return {...state, isLoggedIn: true, id: action.payload}
+    case 'GETS_TEACHER_INSTRUMENTS':
+      return {...state, instruments:action.payload}
     default: return state
   }
 }
