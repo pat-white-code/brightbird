@@ -55,6 +55,17 @@ export const getTeacherInstruments = teacherId => {
   }
 }
 
+export const addInstrument = (teacherId, instrument) => {
+  return async dispatch => {
+    try {
+      let response = await axios.post(`/api/teachers/instrument/add/${teacherId}`, instrument)
+      let result = response.data;
+      console.log(result)
+      dispatch({type:'DATABASE_UPDATED'})
+    } catch (err) {alert(err)}
+  }
+}
+
 export const fetchClientRequests = (userId) => {
   return (dispatch) => {
     axios.get(`/api/requests/client/${userId}`)

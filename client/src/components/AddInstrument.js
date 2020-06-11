@@ -30,7 +30,7 @@ const AddInstrument = (props) => {
   const [minAge, setMinAge] = useState(0);
   const [maxExp, setMaxExp] = useState(100);
 
-  const {teacher, addLesson } = props;
+  const {teacher, addInstrument, handleClose } = props;
 
 
   const handleInstrumentId = e => {
@@ -48,14 +48,12 @@ const AddInstrument = (props) => {
   }
 
 
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   let studentAge = Math.abs(moment(props.student.dob).diff(moment(), 'years'));
-  //   props.addRequest({
-  //     instrumentId, addressId, experience, lessonDuration, studentId: props.student.id, studentAge
-  //   })
-  //   props.handleClose()
-  // }
+  const handleSubmit = e => {
+    e.preventDefault();
+    let instrument = {instrumentId, maxExp, minAge}
+    addInstrument(teacher.id, instrument)
+    handleClose()
+  }
 
   return (
     <Container maxWidth='md' className={classes.container}>
