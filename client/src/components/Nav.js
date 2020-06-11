@@ -21,8 +21,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
   const classes = useStyles();
+  const {user, teacher} = props;
 
   return (
     <div className={classes.root}>
@@ -37,12 +38,22 @@ export default function ButtonAppBar() {
           <Button color="inherit" className={classes.menuButton} onClick={()=>{
             axios.get('/test')
               .then(res => console.log(res))
-            }}>Test Server</Button>
-          <Link to="/login"><Button color="inherit" className={classes.menuButton}>Login</Button></Link>
+            }}>Test Server
+          </Button>
           <Link to="/teacher/signup"><Button color="inherit" className={classes.menuButton}>Teacher Signup</Button></Link>
-          <Link to="/availability"><Button color="inherit" className={classes.menuButton}>Availability</Button></Link>
-          <Link to="/requests"><Button color="inherit" className={classes.menuButton}>View Requests</Button></Link>
-          <Link to="/signup/parent"><Button color="secondary" variant='contained'>Sign up Free</Button></Link>
+          {user.isLoggedIn && (
+            <>
+              <Link to="/availability"><Button color="inherit" className={classes.menuButton}>Availability</Button></Link>
+              <Link to="/requests"><Button color="inherit" className={classes.menuButton}>View Requests</Button></Link>
+              <Link to="/"><Button color="secondary" variant='contained'>Log Out</Button></Link>
+            </>
+          )}
+          {!user.isLoggedIn && (
+            <>
+              <Link to="/login"><Button color="inherit" className={classes.menuButton}>Login</Button></Link>
+              <Link to="/signup/parent"><Button color="secondary" variant='contained'>Sign up Free</Button></Link>
+            </>
+          )}
         </Toolbar>
       </AppBar>
     </div>

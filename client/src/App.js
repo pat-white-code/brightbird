@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 
 
-import Nav from './components/Nav'
+import Nav from './containers/Nav'
 
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
