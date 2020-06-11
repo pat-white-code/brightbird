@@ -43,15 +43,17 @@ export default function Login(props) {
     setPassword(e.target.value)
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let credentials = {email: username, password}
+    teacherCredentials(credentials);
+    history.push('/teacher/home');
+  }
+
   return (
     <Container className={classes.container}>
       <Typography variant='h3'>Teacher Login</Typography>
-      <form className={classes.root} noValidate autoComplete="off" 
-            onSubmit={()=> {
-              {/* e.preventDefault(); */}
-              teacherCredentials({email: username, password})
-              history.push('/teacher/home')
-              }}>
+      <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
         <TextField id="username" label="Username" onChange={handleUsername} required />
         <TextField id="password" label="Password" type='password' onChange={handlePassword} required />
         <Button className={classes.button} type='submit'>Submit</Button>
