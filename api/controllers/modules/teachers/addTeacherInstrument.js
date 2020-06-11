@@ -2,23 +2,26 @@ const pool = require('../../../mysql/connection');
 const mysql = require('mysql');
 
 const addTeacherInstrument = (req, res) => {
+  const {instrumentId, minAge, maxExp} = req.body;
+  const {teacherId} = req.params;
   let sql = `
-    SELECT instrument_id, instrument_name, min_age, max_exp
-    FROM teacher_instruments
-    JOIN instruments
-      ON instruments.id = instrument_id
-    WHERE teacher_id = ?;
+    INSERT into teacher_instruments (
+      teacher_id, instrument_id, min_age, max_exp
+    )
+    VALUES (
+      ?, ?, ?, ?
+    );
   `;
-  let replacements = [req.params.teacherId]
+  let replacements = [teacherId, instrumentId, minAge, maxExp]
 
   sql = mysql.format(sql, replacements);
 
-  pool.query(sql, (err, rows)=> {
+  pool.query(sql, (err, result)=> {
     if(err) {
       return res.status(500).send('ERROR' + err)
     }
-    return res.json(rows); 
+    return res.json(result); 
   })
 }
 
-module.exports = getTeacherInstruments;
+module.exports = addTeacherInstrument;

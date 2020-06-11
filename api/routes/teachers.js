@@ -9,6 +9,7 @@ router.get('/:teacherId/instruments', controller.getTeacherInstruments);
 
 router.post('/signup', controller.teacherSignup);
 router.post('/auth/login', controller.loginTeacher);
+router.post('/instrument/add/:teacherId', controller.addTeacherInstrument);
 
 
 module.exports = router;
