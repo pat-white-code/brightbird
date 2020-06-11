@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Login(props) {
   const classes = useStyles();
   const history = useHistory();
+  const {userLogin} = props;
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -48,7 +49,7 @@ export default function Login(props) {
       <form className={classes.root} noValidate autoComplete="off" 
             onSubmit={()=> {
               {/* e.preventDefault(); */}
-              props.userLogin({email: username, password})
+              userLogin({email: username, password})
               history.push('/availability')
               }}>
         <TextField id="username" label="Username" onChange={handleUsername} required />

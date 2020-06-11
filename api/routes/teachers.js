@@ -7,6 +7,7 @@ router.get('/all', controller.getAllTeachers);
 router.get('/two', controller.getTeachersForTwo);
 
 router.post('/signup', controller.teacherSignup);
+router.post('/auth/login', controller.loginTeacher);
 
 
 module.exports = router;
