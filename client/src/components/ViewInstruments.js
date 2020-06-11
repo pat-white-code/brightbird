@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Grid } from '@material-ui/core';
+import InstrumentCard from './InstrumentCard';
 // import { makeStyles } from '@material-ui/core/styles';
 // import RequestCard from '../containers/RequestCard';
 // import FormModal from './FormModal';
@@ -35,13 +36,9 @@ const ViewInstruments = (props) => {
       <h1>Instruments You Teach</h1>
       <Grid container spacing={3}>
         {/* For each instrument map a card, then have a plus sign for new instrument */}
-        {teacher.instruments.map(instrument=> (
+        {teacher.instruments.map(instrument => (
           <Grid item xs>
-            <ul>
-              <li>{instrument.instrument_name}</li>
-              <li>{`Minimum Age: ${instrument.min_age}`}</li>
-              <li>{`Max Experience: ${instrument.max_exp}`}</li>
-            </ul>
+            <InstrumentCard instrument={instrument} />
             {/* <InstrumentCard request={instrument} /> */}
           </Grid>
           ))}
