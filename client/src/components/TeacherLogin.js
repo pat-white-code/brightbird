@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Login(props) {
   const classes = useStyles();
   const history = useHistory();
-  const {userLogin} = props;
+  const {teacherCredentials} = props;
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -45,12 +45,12 @@ export default function Login(props) {
 
   return (
     <Container className={classes.container}>
-      <Typography variant='h3'>Login</Typography>
+      <Typography variant='h3'>Teacher Login</Typography>
       <form className={classes.root} noValidate autoComplete="off" 
             onSubmit={()=> {
               {/* e.preventDefault(); */}
-              userLogin({email: username, password})
-              history.push('/availability')
+              teacherCredentials({email: username, password})
+              history.push('/teacher/home')
               }}>
         <TextField id="username" label="Username" onChange={handleUsername} required />
         <TextField id="password" label="Password" type='password' onChange={handlePassword} required />

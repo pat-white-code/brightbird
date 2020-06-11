@@ -27,6 +27,19 @@ export const userLogin = (user) => {
   }
 }
 
+export const teacherCredentials = teacher => {
+  return async dispatch => {
+    try {
+      let response = await axios.post('/api/teachers/auth/login', teacher);
+      let teacherId = response.data.id;
+      dispatch(teacherLogin(teacherId))
+    }
+    catch(err) {
+      alert(err)
+    }
+  }
+}
+
 export const fetchClientRequests = (userId) => {
   return (dispatch) => {
     axios.get(`/api/requests/client/${userId}`)

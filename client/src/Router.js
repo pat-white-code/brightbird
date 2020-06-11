@@ -8,7 +8,8 @@ import TeacherAvailability from './containers/TeacherAvailability';
 import Login from './containers/Login';
 import ViewRequests from './containers/ViewRequests';
 import TeacherSignup from './components/TeacherSignup';
-import TeacherHome from './components/TeacherHome'
+import TeacherHome from './components/TeacherHome';
+import TeacherLogin from './containers/TeacherLogin';
 
 
 const Router = () => {
@@ -23,6 +24,7 @@ const Router = () => {
       <Route path='/login' component={Login} />
       <Route path='/teacher/signup' component={TeacherSignup} />
       <Route path='/teacher/home' component={TeacherHome} />
+      <Route path='/teacher/login' component={TeacherLogin} />
     </Switch>
   )
 }
