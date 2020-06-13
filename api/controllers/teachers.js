@@ -5,6 +5,7 @@ const teacherSignup = require('./modules/teachers/teacherSignup');
 const loginTeacher = require('./modules/teachers/loginTeacher');
 const getTeacherInstruments = require('./modules/teachers/getTeacherInstruments');
 const addTeacherInstrument = require('./modules/teachers/addTeacherInstrument');
+const createTeacherZipCode = require('./modules/teachers/createTeacherZipCode');
 
 module.exports = {
   getTeachers,
@@ -13,5 +14,6 @@ module.exports = {
   teacherSignup,
   loginTeacher,
   getTeacherInstruments,
-  addTeacherInstrument
+  addTeacherInstrument,
+  createTeacherZipCode
 };
