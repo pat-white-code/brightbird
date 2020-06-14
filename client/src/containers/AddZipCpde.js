@@ -1,6 +1,12 @@
 import AddZipCode from '../components/AddZipCode';
 import { connect } from 'react-redux';
-import { AddTeacherZipCode } from '../redux/actions';
+import { addTeacherZipCode } from '../redux/actions';
+
+const mapStateToProps = state => {
+  return {
+    teacher: state.teacher
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -8,4 +14,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(AddTeacherZipCode);
+export default connect(mapStateToProps, mapDispatchToProps)(AddZipCode);

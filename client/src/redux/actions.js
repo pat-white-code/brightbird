@@ -58,7 +58,7 @@ export const getTeacherInstruments = teacherId => {
 export const addTeacherZipCode = zipCode => {
   return async dispatch => {
     try {
-      let response = await axios.post('/api/teachers/zip-code', {zipCode})
+      let response = await axios.post('/api/teachers/zip-code', zipCode)
       console.log(response);
       dispatch({type: 'DATABASE_UPDATED'})
     }

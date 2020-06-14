@@ -23,7 +23,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const AddZipCode = () => {
+const AddZipCode = (props) => {
+  const {addTeacherZipCode, teacher} = props;
+
   const [zipCode, setZipCode] = useState('');
 
   const handleZipCode = e => {
@@ -33,7 +35,8 @@ const AddZipCode = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // send to API
+    let request = {zipCode, teacherId: teacher.id}
+    addTeacherZipCode(request);
   }
 
   return(
