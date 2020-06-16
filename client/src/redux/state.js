@@ -15,7 +15,8 @@ const state = {
     isLoggedIn: false,
     id: null,
     instruments: [],
-    zipCodes: []
+    zipCodes: [],
+    info: {}
   }
 }
 

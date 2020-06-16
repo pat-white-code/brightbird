@@ -8,7 +8,7 @@ import TeacherAvailability from './containers/TeacherAvailability';
 import Login from './containers/Login';
 import ViewRequests from './containers/ViewRequests';
 import TeacherSignup from './components/TeacherSignup';
-import TeacherHome from './components/TeacherHome';
+import TeacherHome from './containers/TeacherHome';
 import TeacherLogin from './containers/TeacherLogin';
 import ViewInstruments from './containers/ViewInstruments';
 

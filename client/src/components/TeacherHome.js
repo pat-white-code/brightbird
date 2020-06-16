@@ -3,13 +3,13 @@ import ViewInstruments from '../containers/ViewInstruments';
 import { Container } from '@material-ui/core';
 import EditServices from './EditServices';
 
-const TeacherHome = () => {
-
+const TeacherHome = (props) => {
+  const {teacher} = props;
   return (
     <Container>
       <h1>Hello Teacher! You are Home!</h1>
       <ViewInstruments />
-      <EditServices />
+      <EditServices teacher={teacher}/>
     </Container>
   )
 }

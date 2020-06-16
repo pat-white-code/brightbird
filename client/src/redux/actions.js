@@ -32,6 +32,7 @@ export const teacherCredentials = teacher => {
     try {
       let response = await axios.post('/api/teachers/auth/login', teacher);
       let teacherId = response.data.id;
+      dispatch(getTeacherInfo(teacherId))
       dispatch(teacherLogin(teacherId))
       dispatch(getTeacherInstruments(teacherId))
       dispatch(getZipCodesByTeacher(teacherId))
@@ -39,6 +40,17 @@ export const teacherCredentials = teacher => {
     catch(err) {
       alert(err)
     }
+  }
+}
+
+export const getTeacherInfo = teacherId => {
+  return async dispatch => {
+    try {
+      let response = await axios.get(`/api/teachers/${teacherId}`)
+      let info = response.data[0];
+      dispatch({type:'GETS_TEACHER_INFO', payload:info})
+    }
+    catch(err) {alert(err)}
   }
 }
 
@@ -86,6 +98,17 @@ export const deleteZipCode = zipCodeId => {
       dispatch({type:'DATABASE_UPDATED'})
     }
     catch (err) {alert(err)}
+  }
+}
+
+export const editMaxDrive = maxDrive => {
+  return async dispatch => {
+    try{
+      let response = await axios.put('/api/teachers/max-drive', maxDrive);
+      console.log(response);
+      dispatch({type: 'DATABASE_UPDATED'})
+    }
+    catch(err) {alert(err)}
   }
 }
 

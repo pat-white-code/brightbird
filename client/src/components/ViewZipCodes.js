@@ -1,11 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
-import FaceIcon from '@material-ui/icons/Face';
-import DoneIcon from '@material-ui/icons/Done';
-import { useEffect } from 'react';
-import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,10 +16,6 @@ const useStyles = makeStyles((theme) => ({
 export default function ViewZipCodes(props) {
   const classes = useStyles();
   const {zipCodes, deleteZipCode} = props;
-
-  const handleDelete = () => {
-    alert('You clicked the delete icon.');
-  };
 
 
   return (
