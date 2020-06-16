@@ -5,6 +5,7 @@ import Chip from '@material-ui/core/Chip';
 import FaceIcon from '@material-ui/icons/Face';
 import DoneIcon from '@material-ui/icons/Done';
 import { useEffect } from 'react';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,25 +18,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ViewZipCodes() {
+export default function ViewZipCodes(props) {
   const classes = useStyles();
-
-  useEffect(()=>{
-    // get zipCodes by teacher
-  }, [dbUpdatedAt])
+  const {zipCodes} = props;
 
   const handleDelete = () => {
-    console.log('You clicked the delete icon.');
+    alert('You clicked the delete icon.');
   };
 
 
   return (
     <div className={classes.root}>
-      <Chip
-        avatar={<Avatar alt="Natacha" src="/static/images/avatar/1.jpg" />}
-        label="Deletable"
-        onDelete={handleDelete}
+      {zipCodes.map(zipCode => (
+        <Chip
+        key={zipCode.id}
+        label={`${zipCode.zip_code}`}
+        onDelete={(zipCode.id)=>{
+
+        }}
       />
+      ))}
     </div>
   );
 }

@@ -50,6 +50,8 @@ const teacher = (state = {}, action) => {
       return {...state, isLoggedIn: true, id: action.payload}
     case 'GETS_TEACHER_INSTRUMENTS':
       return {...state, instruments:action.payload}
+    case 'GETS_TEACHER_ZIPCODES':
+      return {...state, zipCodes: action.payload}
     default: return state
   }
 }

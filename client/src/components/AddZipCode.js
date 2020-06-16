@@ -1,5 +1,6 @@
-import React, {useState } from 'react';
+import React, {useState, useEffect } from 'react';
 import { Button, Typography, Container, TextField, FormControl, FormHelperText, InputLabel, Select, MenuItem, makeStyles } from '@material-ui/core';
+import ViewZipCodes from './ViewZipCodes';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -24,9 +25,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AddZipCode = (props) => {
-  const {addTeacherZipCode, teacher} = props;
+  const {
+    teacher, 
+    addTeacherZipCode,
+    getZipCodesByTeacher,
+    dbUpdatedAt,
+  } = props;
 
   const [zipCode, setZipCode] = useState('');
+
+  useEffect(()=>{
+    getZipCodesByTeacher(teacher.id)
+  }, [dbUpdatedAt])
 
   const handleZipCode = e => {
     setZipCode(e.target.value)
@@ -48,6 +58,7 @@ const AddZipCode = (props) => {
         value={zipCode}
         onChange={handleZipCode} />
         <Button type='submit' color="primary" contained>Add</Button>
+        <ViewZipCodes zipCodes={teacher.zipCodes} />
     </form>
   )
 }

@@ -14,7 +14,8 @@ const state = {
   teacher: {
     isLoggedIn: false,
     id: null,
-    instruments: []
+    instruments: [],
+    zipCodes: []
   }
 }
 

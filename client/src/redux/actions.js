@@ -34,6 +34,7 @@ export const teacherCredentials = teacher => {
       let teacherId = response.data.id;
       dispatch(teacherLogin(teacherId))
       dispatch(getTeacherInstruments(teacherId))
+      dispatch(getZipCodesByTeacher(teacherId))
     }
     catch(err) {
       alert(err)
@@ -63,6 +64,17 @@ export const addTeacherZipCode = zipCode => {
       dispatch({type: 'DATABASE_UPDATED'})
     }
     catch (err) {alert(err)}
+  }
+}
+
+export const getZipCodesByTeacher = teacherId => {
+  return async dispatch => {
+    try {
+      let response = await axios.get(`/api/teachers/${teacherId}/zip-codes`);
+      let zipCodes = response.data;
+      dispatch({type:'GETS_TEACHER_ZIPCODES', payload:zipCodes});
+    }
+    catch(err) {alert(err)}
   }
 }
 
