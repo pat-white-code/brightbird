@@ -15,4 +15,6 @@ router.post('/zip-code', controller.createTeacherZipCode);
 
 router.delete('/zip-code/:zipCodeId', controller.deleteZipCode);
 
+router.put('/max-drive', controller.editMaxDrive);
+
 module.exports = router;

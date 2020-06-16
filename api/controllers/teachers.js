@@ -8,6 +8,7 @@ const addTeacherInstrument = require('./modules/teachers/addTeacherInstrument');
 const createTeacherZipCode = require('./modules/teachers/createTeacherZipCode');
 const getZipCodesByTeacher = require('./modules/teachers/getZipCodesByTeacher');
 const deleteZipCode = require('./modules/teachers/deleteZipCode');
+const editMaxDrive = require('./modules/teachers/editMaxDrive');
 
 module.exports = {
   getTeachers,
@@ -19,5 +20,6 @@ module.exports = {
   addTeacherInstrument,
   createTeacherZipCode,
   getZipCodesByTeacher,
-  deleteZipCode
+  deleteZipCode,
+  editMaxDrive
 };

@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
-      width: '25ch',
+      width: '15ch',
       display: 'flex',
       flexDirection: 'column'
     },
@@ -33,6 +33,8 @@ const AddZipCode = (props) => {
     deleteZipCode
   } = props;
 
+  const classes = useStyles();
+  
   const [zipCode, setZipCode] = useState('');
 
   useEffect(()=>{
@@ -51,15 +53,19 @@ const AddZipCode = (props) => {
   }
 
   return(
-    <form onSubmit={handleSubmit}>
+    <form className={classes.root} onSubmit={handleSubmit}>
       <TextField 
         labelId='add-zip-code'
         id='zip-code'
         label="Add Zip Code"
         value={zipCode}
         onChange={handleZipCode} />
-        <Button type='submit' color="primary" contained>Add</Button>
-        <ViewZipCodes zipCodes={teacher.zipCodes} deleteZipCode={deleteZipCode} />
+      <Button 
+        type='submit' 
+        color="primary" 
+        contained> Add </Button>
+      <ViewZipCodes 
+        zipCodes={teacher.zipCodes} deleteZipCode={deleteZipCode} />
     </form>
   )
 }
