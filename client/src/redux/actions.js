@@ -78,6 +78,17 @@ export const getZipCodesByTeacher = teacherId => {
   }
 }
 
+export const deleteZipCode = zipCodeId => {
+  return async dispatch => {
+    try {
+      let response = await axios.delete(`/api/teachers/zip-code/${zipCodeId}`)
+      console.log(response)
+      dispatch({type:'DATABASE_UPDATED'})
+    }
+    catch (err) {alert(err)}
+  }
+}
+
 export const addInstrument = (teacherId, instrument) => {
   return async dispatch => {
     try {

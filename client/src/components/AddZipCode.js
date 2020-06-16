@@ -30,6 +30,7 @@ const AddZipCode = (props) => {
     addTeacherZipCode,
     getZipCodesByTeacher,
     dbUpdatedAt,
+    deleteZipCode
   } = props;
 
   const [zipCode, setZipCode] = useState('');
@@ -58,7 +59,7 @@ const AddZipCode = (props) => {
         value={zipCode}
         onChange={handleZipCode} />
         <Button type='submit' color="primary" contained>Add</Button>
-        <ViewZipCodes zipCodes={teacher.zipCodes} />
+        <ViewZipCodes zipCodes={teacher.zipCodes} deleteZipCode={deleteZipCode} />
     </form>
   )
 }

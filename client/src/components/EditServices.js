@@ -1,6 +1,6 @@
 import React, {useState } from 'react';
 import { Button, Typography, Container, TextField, FormControl, FormHelperText, InputLabel, Select, MenuItem, makeStyles } from '@material-ui/core';
-import AddZipCode from '../containers/AddZipCpde';
+import AddZipCode from '../containers/AddZipCode';
 
 
 const useStyles = makeStyles((theme) => ({

@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ViewZipCodes(props) {
   const classes = useStyles();
-  const {zipCodes} = props;
+  const {zipCodes, deleteZipCode} = props;
 
   const handleDelete = () => {
     alert('You clicked the delete icon.');
@@ -33,9 +33,7 @@ export default function ViewZipCodes(props) {
         <Chip
         key={zipCode.id}
         label={`${zipCode.zip_code}`}
-        onDelete={(zipCode.id)=>{
-
-        }}
+        onDelete={()=>{deleteZipCode(zipCode.id)}}
       />
       ))}
     </div>

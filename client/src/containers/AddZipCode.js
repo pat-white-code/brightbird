@@ -1,6 +1,6 @@
 import AddZipCode from '../components/AddZipCode';
 import { connect } from 'react-redux';
-import { addTeacherZipCode, getZipCodesByTeacher } from '../redux/actions';
+import { addTeacherZipCode, getZipCodesByTeacher, deleteZipCode } from '../redux/actions';
 
 const mapStateToProps = state => {
   return {
@@ -12,7 +12,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getZipCodesByTeacher: teacherId => dispatch(getZipCodesByTeacher(teacherId)),
-    addTeacherZipCode: zipCode => dispatch(addTeacherZipCode(zipCode))
+    addTeacherZipCode: zipCode => dispatch(addTeacherZipCode(zipCode)),
+    deleteZipCode: zipCodeId => dispatch(deleteZipCode(zipCodeId))
   }
 }
 
