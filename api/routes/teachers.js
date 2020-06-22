@@ -7,6 +7,8 @@ router.get('/all', controller.getAllTeachers);
 router.get('/two', controller.getTeachersForTwo);
 router.get('/:teacherId/instruments', controller.getTeacherInstruments);
 router.get('/:teacherId/zip-codes', controller.getZipCodesByTeacher);
+router.get('/:teacherId', controller.getTeacherInfo);
+router.get('/:teacherId/week', controller.getTeacherWeek);
 
 router.post('/signup', controller.teacherSignup);
 router.post('/auth/login', controller.loginTeacher);
