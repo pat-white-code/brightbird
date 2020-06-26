@@ -14,6 +14,7 @@ router.post('/signup', controller.teacherSignup);
 router.post('/auth/login', controller.loginTeacher);
 router.post('/instrument/add/:teacherId', controller.addTeacherInstrument);
 router.post('/zip-code', controller.createTeacherZipCode);
+router.post('/week', controller.createTeacherWeek);
 
 router.delete('/zip-code/:zipCodeId', controller.deleteZipCode);
 

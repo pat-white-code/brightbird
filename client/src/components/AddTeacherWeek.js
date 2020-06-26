@@ -83,33 +83,8 @@ const EditRequest = (props) => {
         </FormControl>
         <TimePicker value={startTime} handleStartTime={handleStartTime} label={"Start Time"} />
         <TimePicker value={endTime} handleEndTime={handleEndTime} label={"End Time"} />
-        <FormControl className={classes.formControl}>
-          <InputLabel id="experience">Years of Experience</InputLabel>
-          <Select
-            labelId="experience-select"
-            id="experience"
-            value={0}
-            onChange={handleDayId}>
-              <MenuItem value={0}>Beginner/Novice</MenuItem>
-              <MenuItem value={1}>1</MenuItem>
-              <MenuItem value={2}>2</MenuItem>
-            </Select>
-          </FormControl>
-          <FormControl className={classes.formControl}>
-            <InputLabel id="lesson-duration">Preferred Lesson Duration</InputLabel>
-            <Select
-            labelId="lesson-duration-select"
-            id="lesson-duration"
-            value={30}
-            onChange={handleDayId}>
-              <MenuItem value={30}>30-Min ($40) </MenuItem>
-              <MenuItem value={45}>45-Min ($56) </MenuItem>
-              <MenuItem value={60}>60-Min ($72) </MenuItem>
-          </Select>
-          <FormHelperText>Lessons providede Weekly</FormHelperText>
-        </FormControl>
-        <Button color='primary' variant='contained' type='submit'>Update Request</Button>
-        <Button>Cancel</Button>
+        <Button color='primary' variant='contained' type='submit'>Add Availability</Button>
+        <Button onClick={handleClose}>Cancel</Button>
       </form>
     </Container>
   )
