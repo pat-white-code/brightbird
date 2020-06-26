@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '@material-ui/core';
+import { Container, IconButton } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -9,6 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import moment from 'moment';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 const useStyles = makeStyles({
   table: {
@@ -44,6 +45,16 @@ const TeacherWeek = (props) => {
               <TableCell align="right">Action</TableCell>
             </TableRow>
           ))}
+          <TableRow>
+            <TableCell component="th" scope="row">
+              <IconButton>
+                <AddCircleIcon />
+              </IconButton>
+            </TableCell>
+            <TableCell />
+            <TableCell />
+            <TableCell />
+          </TableRow>
         </TableBody>
       </Table>
     </TableContainer>
