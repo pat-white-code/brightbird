@@ -9,7 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import moment from 'moment';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
+import AddTeacherWeekModal from './AddTeacherWeekModal';
 
 const useStyles = makeStyles({
   table: {
@@ -19,6 +19,17 @@ const useStyles = makeStyles({
 
 const TeacherWeek = (props) => {
   const {teacher} = props;
+  const days = [
+    [1, 'Mondays'],
+    [2, 'Tuesdays'],
+    [3, 'Wednesdays'],
+    [4, 'Thursdays'],
+    [5, 'Fridays'],
+    [6, 'Saturdays'],
+    [7, 'Sundays']
+  ]
+  const unlistedDays = days.filter(day => teacher.week.some(weekday => weekday.day_id === day[0]) === false);
+  console.log('Unlisted Days', unlistedDays) 
   const classes = useStyles()
   return (
     <Container>
@@ -48,7 +59,7 @@ const TeacherWeek = (props) => {
           <TableRow>
             <TableCell component="th" scope="row">
               <IconButton>
-                <AddCircleIcon />
+                <AddTeacherWeekModal days={unlistedDays}/>
               </IconButton>
             </TableCell>
             <TableCell />
