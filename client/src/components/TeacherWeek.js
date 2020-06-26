@@ -8,6 +8,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import moment from 'moment';
 
 const useStyles = makeStyles({
   table: {
@@ -36,10 +37,10 @@ const TeacherWeek = (props) => {
           {teacher.week.map(weekday => (
             <TableRow key={weekday.id}>
               <TableCell component="th" scope="row">
-                {weekday.day_of_week}
+                {`${weekday.day_of_week}s`}
               </TableCell>
-              <TableCell align="right">{weekday.start_time}</TableCell>
-              <TableCell align="right">{weekday.end_time}</TableCell>
+              <TableCell align="right">{moment(weekday.start_time).format('h:mm A')}</TableCell>
+              <TableCell align="right">{moment(weekday.end_time).format('h:mm A')}</TableCell>
               <TableCell align="right">Action</TableCell>
             </TableRow>
           ))}
