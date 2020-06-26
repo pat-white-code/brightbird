@@ -15,8 +15,8 @@ const useStyles = makeStyles({
   },
 });
 
-const TeacherWeek = () => {
-  let rows = [1, 2, 3]
+const TeacherWeek = (props) => {
+  const {teacher} = props;
   const classes = useStyles()
   return (
     <Container>
@@ -33,13 +33,13 @@ const TeacherWeek = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
+          {teacher.week.map(weekday => (
+            <TableRow key={weekday.id}>
               <TableCell component="th" scope="row">
-                Mondays
+                {weekday.day_of_week}
               </TableCell>
-              <TableCell align="right">12:00 PM</TableCell>
-              <TableCell align="right">7:00 PM</TableCell>
+              <TableCell align="right">{weekday.start_time}</TableCell>
+              <TableCell align="right">{weekday.end_time}</TableCell>
               <TableCell align="right">Action</TableCell>
             </TableRow>
           ))}

@@ -2,7 +2,7 @@ import React from 'react';
 import ViewInstruments from '../containers/ViewInstruments';
 import { Container } from '@material-ui/core';
 import EditServices from './EditServices';
-import TeacherWeek from './TeacherWeek';
+import TeacherWeek from '../containers/TeacherWeek';
 
 const TeacherHome = (props) => {
   const {teacher} = props;

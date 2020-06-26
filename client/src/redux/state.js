@@ -16,7 +16,8 @@ const state = {
     id: null,
     instruments: [],
     zipCodes: [],
-    info: {}
+    info: {},
+    week: []
   }
 }
 

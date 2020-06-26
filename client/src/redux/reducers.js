@@ -54,6 +54,8 @@ const teacher = (state = {}, action) => {
       return {...state, zipCodes: action.payload}
     case 'GETS_TEACHER_INFO':
       return {...state, info: action.payload}
+    case 'GETS_TEACHER_WEEK':
+      return {...state, week: action.payload};
     default: return state
   }
 }

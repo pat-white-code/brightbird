@@ -36,6 +36,7 @@ export const teacherCredentials = teacher => {
       dispatch(teacherLogin(teacherId))
       dispatch(getTeacherInstruments(teacherId))
       dispatch(getZipCodesByTeacher(teacherId))
+      dispatch(getTeacherWeek(teacherId))
     }
     catch(err) {
       alert(err)
@@ -49,6 +50,17 @@ export const getTeacherInfo = teacherId => {
       let response = await axios.get(`/api/teachers/${teacherId}`)
       let info = response.data[0];
       dispatch({type:'GETS_TEACHER_INFO', payload:info})
+    }
+    catch(err) {alert(err)}
+  }
+}
+
+export const getTeacherWeek = teacherId => {
+  return async dispatch => {
+    try {
+      let response = await axios.get(`/api/teachers/${teacherId}/week`);
+      let week = response.data;
+      dispatch({type: 'GETS_TEACHER_WEEK', payload: week})
     }
     catch(err) {alert(err)}
   }
