@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, IconButton } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -18,7 +18,12 @@ const useStyles = makeStyles({
 });
 
 const TeacherWeek = (props) => {
-  const {teacher} = props;
+  const {
+    teacher,
+    getTeacherWeek,
+    dbUpdatedAt
+  } = props;
+
   const days = [
     [1, 'Mondays'],
     [2, 'Tuesdays'],
@@ -28,6 +33,13 @@ const TeacherWeek = (props) => {
     [6, 'Saturdays'],
     [7, 'Sundays']
   ]
+  useEffect(() => {
+    getTeacherWeek(teacher.id)
+    // getRequestsWithAvail(user.id)
+    // https://github.com/facebook/create-react-app/issues/6880
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dbUpdatedAt]);
+
   const unlistedDays = days.filter(day => teacher.week.some(weekday => weekday.day_id === day[0]) === false);
   console.log('Unlisted Days', unlistedDays) 
   const classes = useStyles()

@@ -44,6 +44,19 @@ export const teacherCredentials = teacher => {
   }
 }
 
+export const createTeacherWeek = reqBody => {
+  return async dispatch => {
+    try {
+      let response = await axios.post('/api/teachers/week', reqBody);
+    let data = response.data;
+    dispatch({type: 'DATABASE_UPDATED'})
+    }
+    catch(err) {
+      alert(err)
+    }
+  }
+}
+
 export const getTeacherInfo = teacherId => {
   return async dispatch => {
     try {

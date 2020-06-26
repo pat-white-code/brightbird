@@ -27,10 +27,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const EditRequest = (props) => {
+const AddTeacherWeek = (props) => {
   const { 
     handleClose,
-    days
+    days,
+    teacher,
+    createTeacherWeek
   } = props;
   // instrument
   // lesson duration  
@@ -57,10 +59,10 @@ const EditRequest = (props) => {
   }
 
   const handleSubmit = e => {
+    let teacherId = teacher.id
     e.preventDefault();
-    // let studentAge = Math.abs(moment(request.dob).diff(moment(), 'years'));
-    // console.log('STUDENT AGE', studentAge)
-    // editRequest({instrumentId, addressId, experience, lessonDuration, studentAge, requestId: request.id})
+    let reqBody = {teacherId, startTime, endTime, dayId}
+    createTeacherWeek(reqBody)
     handleClose()
   }
 
@@ -90,4 +92,4 @@ const EditRequest = (props) => {
   )
 }
 
-export default EditRequest
+export default AddTeacherWeek

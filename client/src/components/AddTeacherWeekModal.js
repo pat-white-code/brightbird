@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 // import EditIcon from '@material-ui/icons/Edit';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 // import EditRequest from '../containers/EditRequest';
-import AddTeacherWeek from './AddTeacherWeek';
+import AddTeacherWeek from '../containers/AddTeacherWeek';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
