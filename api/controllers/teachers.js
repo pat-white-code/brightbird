@@ -12,6 +12,7 @@ const editMaxDrive = require('./modules/teachers/editMaxDrive');
 const getTeacherInfo = require('./modules/teachers/getTeacherInfo');
 const getTeacherWeek = require('./modules/teachers/getTeacherWeek');
 const createTeacherWeek = require('./modules/teachers/createTeacherWeek');
+const deleteTeacherWeek = require('./modules/teachers/deleteTeacherWeek');
 
 module.exports = {
   getTeachers,
@@ -27,5 +28,6 @@ module.exports = {
   editMaxDrive,
   getTeacherInfo,
   getTeacherWeek,
-  createTeacherWeek
+  createTeacherWeek,
+  deleteTeacherWeek
 };
