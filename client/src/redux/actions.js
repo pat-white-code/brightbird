@@ -80,6 +80,16 @@ export const getTeacherWeek = teacherId => {
   }
 }
 
+export const deleteTeacherWeek = weekId => {
+  return async dispatch => {
+    try{
+      let response = await axios.delete(`/api/teachers/week/${weekId}`)
+      console.log(response)
+      dispatch({type:'DATABASE_UPDATED'});
+    } catch(err) {alert(err)}
+  }
+}
+
 export const getTeacherInstruments = teacherId => {
   return async dispatch => {
     try {

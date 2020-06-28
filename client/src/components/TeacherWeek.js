@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import moment from 'moment';
 import AddTeacherWeekModal from './AddTeacherWeekModal';
+import MoreVert from './MoreVert';
 
 const useStyles = makeStyles({
   table: {
@@ -21,7 +22,8 @@ const TeacherWeek = (props) => {
   const {
     teacher,
     getTeacherWeek,
-    dbUpdatedAt
+    dbUpdatedAt,
+    deleteTeacherWeek
   } = props;
 
   const days = [
@@ -65,7 +67,9 @@ const TeacherWeek = (props) => {
               </TableCell>
               <TableCell align="right">{moment(weekday.start_time, 'HH:mm').format('h:mm A')}</TableCell>
               <TableCell align="right">{moment(weekday.end_time, 'HH:mm').format('h:mm A')}</TableCell>
-              <TableCell align="right">Action</TableCell>
+              <TableCell align="right">
+                <MoreVert week={weekday} deleteTeacherWeek={deleteTeacherWeek} />
+              </TableCell>
             </TableRow>
           ))}
           <TableRow>

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import TeacherWeek from '../components/TeacherWeek';
-import { getTeacherWeek } from '../redux/actions';
+import { getTeacherWeek, deleteTeacherWeek } from '../redux/actions';
 
 const mapStateToProps = state => {
   return {
@@ -11,7 +11,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getTeacherWeek: (teacherId) => dispatch(getTeacherWeek(teacherId))
+    getTeacherWeek: (teacherId) => dispatch(getTeacherWeek(teacherId)),
+    deleteTeacherWeek: (weekId) => dispatch(deleteTeacherWeek(weekId))
   }
 }
 
