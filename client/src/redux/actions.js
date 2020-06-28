@@ -73,7 +73,8 @@ export const getTeacherWeek = teacherId => {
     try {
       let response = await axios.get(`/api/teachers/${teacherId}/week`);
       let week = response.data;
-      dispatch({type: 'GETS_TEACHER_WEEK', payload: week})
+      let orderedWeek = week.sort((a,b) => a.day_id - b.day_id);
+      dispatch({type: 'GETS_TEACHER_WEEK', payload: orderedWeek})
     }
     catch(err) {alert(err)}
   }
