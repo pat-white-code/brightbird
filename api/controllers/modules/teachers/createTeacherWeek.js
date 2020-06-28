@@ -10,7 +10,8 @@ const createTeacherWeek = (req, res, next) => {
   while (days < 7) {
     console.log('DATE FORMAT E', date.format('E'));
     console.log('DAY ID', dayId);
-    if(date.format('E') === dayId){
+    // dayId is integer in form, not string
+    if(date.format('E') == dayId){
       console.log('MATCH!')
       startDate = date.format('YYYY-MM-DD')
     }
