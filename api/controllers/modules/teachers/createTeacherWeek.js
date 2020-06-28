@@ -4,7 +4,19 @@ const moment = require('moment');
 
 const createTeacherWeek = (req, res, next) => {
   const {dayId, startTime, endTime, teacherId} = req.body;
-  const startDate = moment().format('YYYY-MM-DD');
+  let startDate;
+  let date = moment();
+  let days = 0
+  while (days < 7) {
+    console.log('DATE FORMAT E', date.format('E'));
+    console.log('DAY ID', dayId);
+    if(date.format('E') === dayId){
+      console.log('MATCH!')
+      startDate = date.format('YYYY-MM-DD')
+    }
+    date.add(1, 'days');
+    days++;
+  }
 
   let sql = `
   INSERT INTO teacher_week (
@@ -19,6 +31,7 @@ const createTeacherWeek = (req, res, next) => {
   sql = mysql.format(sql, replacements);
   pool.query(sql, (err, results)=> {
     if(err) {return res.status(500).send(err)}
+    req.body.startDate = startDate;
     req.body.weekId = results.insertId
     console.log('REQ BODY',req.body)
     next()
