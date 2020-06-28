@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/teachers');
+const schedules = require('../controllers/schedules');
 
 router.get('/', controller.getTeachers);
 router.get('/all', controller.getAllTeachers);
@@ -14,10 +15,10 @@ router.post('/signup', controller.teacherSignup);
 router.post('/auth/login', controller.loginTeacher);
 router.post('/instrument/add/:teacherId', controller.addTeacherInstrument);
 router.post('/zip-code', controller.createTeacherZipCode);
-router.post('/week', controller.createTeacherWeek);
+router.post('/week', controller.createTeacherWeek, schedules.postSchedules);
 
 router.delete('/zip-code/:zipCodeId', controller.deleteZipCode);
 
-router.put('/max-drive', controller.editMaxDrive);
+router.put('/max-drive', controller.editMaxDrive, schedules.postSchedules);
 
 module.exports = router;

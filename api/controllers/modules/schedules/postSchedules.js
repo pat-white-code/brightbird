@@ -3,15 +3,16 @@ const pool = require('../../../mysql/connection');
 const moment = require('moment');
 
 postSchedules = (req, res) => {
+  let {startDate, startTime, endTime, weekId, teacherId} = req.body;
   //given a day of the week, a start date, a start time and an end time, create schedules that recur on the given day for the next 200 weeks.
-  let startDate = req.body.startDate; //2020-03-02
-  let startTime = req.body.startTime; //15:00:00
-  let endTime = req.body.endTime; //19:00:00
-  let recurringScheduleId = req.body.recurringScheduleId || 123;
+  // let startDate = req.body.startDate; //2020-03-02
+  // let startTime = req.body.startTime; //15:00:00
+  // let endTime = req.body.endTime; //19:00:00
+  // let recurringScheduleId = req.body.recurringScheduleId || 123;
   // let startDateMoment = moment(startDate, 'DD/MM/YYYY');
   startTime = moment(`${startDate} ${startTime}`, 'YYYY-MM-DDTHH:mm:ss')
   endTime = moment(`${startDate} ${endTime}`, 'YYYY-MM-DDTHH:mm:ss')
-  let teacherId = req.params.teacherId;
+  // let teacherId = req.params.teacherId;
 
   let sql = `
   INSERT INTO schedules (
@@ -21,7 +22,7 @@ postSchedules = (req, res) => {
     (?, ?, ?, ?, ?, ?)
   `;
 
-  let replacements = [teacherId, startTime.format('E'), startTime.format('YYYY-MM-DD'), startTime.format('YYYY-MM-DD HH:mm:ss'), endTime.format('YYYY-MM-DD HH:mm:ss'), recurringScheduleId]
+  let replacements = [teacherId, startTime.format('E'), startTime.format('YYYY-MM-DD'), startTime.format('YYYY-MM-DD HH:mm:ss'), endTime.format('YYYY-MM-DD HH:mm:ss'), weekId]
   
   let i = 0;
 
@@ -29,7 +30,7 @@ postSchedules = (req, res) => {
     startTime = startTime.add(1, 'week');
     endTime = endTime.add(1, 'week');
     sql = sql.concat(', (?, ?, ?, ?, ?, ?)')
-    replacements.push(teacherId, startTime.format('E'), startTime.format('YYYY-MM-DD'), startTime.format('YYYY-MM-DD HH:mm:ss'), endTime.format('YYYY-MM-DD HH:mm:ss'), recurringScheduleId);
+    replacements.push(teacherId, startTime.format('E'), startTime.format('YYYY-MM-DD'), startTime.format('YYYY-MM-DD HH:mm:ss'), endTime.format('YYYY-MM-DD HH:mm:ss'), weekId);
     i = i + 1;
   }
 

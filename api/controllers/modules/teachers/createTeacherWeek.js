@@ -2,7 +2,7 @@ const mysql = require('mysql');
 const pool = require('../../../mysql/connection');
 const moment = require('moment');
 
-const createTeacherWeek = (req, res) => {
+const createTeacherWeek = (req, res, next) => {
   const {dayId, startTime, endTime, teacherId} = req.body;
   const startDate = moment().format('YYYY-MM-DD');
 
@@ -19,7 +19,9 @@ const createTeacherWeek = (req, res) => {
   sql = mysql.format(sql, replacements);
   pool.query(sql, (err, results)=> {
     if(err) {return res.status(500).send(err)}
-    return res.status(201).send(results)
+    req.body.weekId = results.insertId
+    console.log('REQ BODY',req.body)
+    next()
   })
 }
 
