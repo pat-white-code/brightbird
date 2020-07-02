@@ -16,14 +16,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TimePicker(props) {
   const classes = useStyles();
-  const {value, handleStartTime, label} = props;
+  const {value, handleChange, label} = props;
   return (
     <TextField
       id="time"
       label={label}
       type="time"
       value={value}
-      onChange={handleStartTime}
+      onChange={handleChange}
       className={classes.textField}
       InputLabelProps={{
         shrink: true,

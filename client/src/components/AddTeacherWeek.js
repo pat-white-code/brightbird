@@ -53,7 +53,7 @@ const AddTeacherWeek = (props) => {
     setStartTime(e.target.value)
   }
   const handleEndTime = e => {
-    console.log('END TIME', startTime)
+    console.log('END TIME', endTime)
     console.log('TARGET VALUE', e.target.value)
     setEndTime(e.target.value)
   }
@@ -83,8 +83,8 @@ const AddTeacherWeek = (props) => {
             ))}
           </Select>
         </FormControl>
-        <TimePicker value={startTime} handleStartTime={handleStartTime} label={"Start Time"} />
-        <TimePicker value={endTime} handleEndTime={handleEndTime} label={"End Time"} />
+        <TimePicker value={startTime} handleChange={handleStartTime} label={"Start Time"} />
+        <TimePicker value={endTime} handleChange={handleEndTime} label={"End Time"} />
         <Button color='primary' variant='contained' type='submit'>Add Availability</Button>
         <Button onClick={handleClose}>Cancel</Button>
       </form>
