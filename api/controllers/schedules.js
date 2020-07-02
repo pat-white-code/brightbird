@@ -5,6 +5,7 @@ const postRecurringSchedule = require('./modules/schedules/postRecurringSchedule
 const getRecurringSchedules = require('./modules/schedules/getRecurringSchedules');
 const getSchedulesByRequest = require('./modules/schedules/getSchedulesByRequest');
 const deleteSchedules = require('./modules/schedules/deleteSchedules');
+const getSchedulesByExperience = require('./modules/schedules/getSchedulesByExperience');
 
 module.exports = {
   getTeacherSchedule,
@@ -13,5 +14,6 @@ module.exports = {
   postRecurringSchedule,
   getRecurringSchedules,
   getSchedulesByRequest,
-  deleteSchedules
+  deleteSchedules,
+  getSchedulesByExperience
 }
