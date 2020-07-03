@@ -25,6 +25,7 @@ router.post('/test',
 
 router.post('/new',
   controller.postRequest,
+  controller.getSchedulesByRequest
   // 
 )
 

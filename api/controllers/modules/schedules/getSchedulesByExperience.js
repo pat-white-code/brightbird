@@ -5,7 +5,7 @@ const getSchedulesByRequest = (req, res) => {
   const {instrumentId, zipCode, studentAge, exp} = req.query;
 
   let sql = `
-      SELECT * FROM schedules
+      SELECT schedules.*, teachers.max_drive FROM schedules
     JOIN teachers 
       ON teachers.id = schedules.teacher_id
     JOIN zip_codes
