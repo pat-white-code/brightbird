@@ -12,6 +12,7 @@ const getTeachersByRequest = require('./modules/requests/getTeachersByRequest');
 const deleteRequest = require('./modules/requests/deleteRequest');
 const editRequest = require('./modules/requests/editRequest');
 const getSchedulesByRequest = require('./modules/requests/getSchedulesByRequest');
+const getLessonsForEachDay = require('./modules/requests/getLessonsForEachDay');
 
 module.exports = {
   postRequest, 
@@ -27,5 +28,6 @@ module.exports = {
   getTeachersByRequest,
   deleteRequest,
   editRequest,
-  getSchedulesByRequest
+  getSchedulesByRequest,
+  getLessonsForEachDay
 };

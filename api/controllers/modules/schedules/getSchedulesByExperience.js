@@ -15,7 +15,8 @@ const getSchedulesByRequest = (req, res) => {
     WHERE zip_code = ?
     AND instrument_id = ?
     AND min_age < ?
-    AND max_exp > ?;
+    AND max_exp > ?
+    ORDER BY teacher_id, start_time;
   `
   let replacements = [zipCode, instrumentId, studentAge, exp];
 

@@ -19,11 +19,10 @@ const getSchedulesByRequest = (req, res, next) => {
 
   getSchedules()
     .then(response =>{
-      console.log('RES', response)
-      req.body.lessonData = response.data;
-      console.log('REQUEST BODY Lesson Data', req.body.lessonData)
-      // next();
-      res.status(200).send("Data Found")
+      req.body.schedules = response.data;
+      // console.log('Schedules', req.body.schedules)
+      next();
+      // res.status(200).send("Data Found")
     })
     .catch(console.error);
 }
