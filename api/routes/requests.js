@@ -26,7 +26,8 @@ router.post('/test',
 router.post('/new',
   controller.postRequest,
   controller.getSchedulesByRequest,
-  controller.getLessonsForEachDay
+  controller.getLessonsForEachDay,
+  controller.filterBookendedLessons2
 )
 
 // Post request,

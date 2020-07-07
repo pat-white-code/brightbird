@@ -13,6 +13,7 @@ const deleteRequest = require('./modules/requests/deleteRequest');
 const editRequest = require('./modules/requests/editRequest');
 const getSchedulesByRequest = require('./modules/requests/getSchedulesByRequest');
 const getLessonsForEachDay = require('./modules/requests/getLessonsForEachDay');
+const filterBookendedLessons2 = require('./modules/requests/filterBookendedLessons2');
 
 module.exports = {
   postRequest, 
@@ -29,5 +30,6 @@ module.exports = {
   deleteRequest,
   editRequest,
   getSchedulesByRequest,
-  getLessonsForEachDay
+  getLessonsForEachDay,
+  filterBookendedLessons2
 };

@@ -2,7 +2,9 @@ const axios = require('axios');
 const moment = require('moment');
 // map each schedule-day
 //  For that schedule-day
-const getLessonsForEachDay = (req, res) => {
+const getLessonsForEachDay = (req, res, next) => {
+  req.body.lessonData = [];
+  req.body.blankDays = [];
   const fetchLessons = async () => {
     let schedules = req.body.schedules;
     let schedulesWithLessons = await Promise.all(schedules.map(async schedule => {
@@ -13,7 +15,15 @@ const getLessonsForEachDay = (req, res) => {
       let lessonsThatDay = await axios.get(`http://localhost:3000/api/lessons/teacher-date/?teacherId=${teacher_id}&date=${date}`)
       console.log('lessonsThatDay DATA', lessonsThatDay.data);
       let data = lessonsThatDay.data
+      if(!data[0]) {
+        req.body.blankDays.push(schedule)
+      }
+      data.forEach(lesson => {
+        lesson.day_start_time = schedule.start_time;
+        lesson.day_end_time = schedule.end_time;
+      })
       schedule.lessons_this_day = data
+      req.body.lessonData.push(...data)
       return schedule;
       // if (!lessonsThatDay.data) {
       //   schedule.data = 'NO LESSONS THIS DAY'
@@ -32,10 +42,12 @@ const getLessonsForEachDay = (req, res) => {
 
   fetchLessons()
     .then(lessons => {
-      console.log('LESSONS', lessons)
+      // console.log('LESSONS', lessons)
       req.body.lessons = lessons
-      console.log('REQ BODY LESSONS', req.body.lessons)
-      res.send('Lessons fetched')
+      console.log('LessonData', req.body.lessonData);
+      // console.log('Blank Days', req.body.blankDays);
+      // res.send('Lessons fetched')
+      next();
     })
     .catch(err => res.status(500).send(err))
 }
