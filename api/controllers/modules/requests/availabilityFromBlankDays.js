@@ -21,8 +21,9 @@ const availabilityFromBlankDays = (req, res, next) => {
       timeTicker.add(30, 'minutes');
     }
   })
-  console.log('AVAILABILITIES', req.body.availabilities);
-  res.status(200).send('availabilities derived from blank days');
+  // console.log('AVAILABILITIES', req.body.availabilities);
+  // res.status(200).send('availabilities derived from blank days');
+  next()
 }
 
 module.exports = availabilityFromBlankDays;

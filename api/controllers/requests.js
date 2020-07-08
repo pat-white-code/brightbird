@@ -15,6 +15,7 @@ const getSchedulesByRequest = require('./modules/requests/getSchedulesByRequest'
 const getLessonsForEachDay = require('./modules/requests/getLessonsForEachDay');
 const filterBookendedLessons2 = require('./modules/requests/filterBookendedLessons2');
 const availabilityFromBlankDays = require('./modules/requests/availabilityFromBlankDays');
+const fetchDriveTimes2 = require('./modules/requests/fetchDriveTimes2');
 
 module.exports = {
   postRequest, 
@@ -33,5 +34,6 @@ module.exports = {
   getSchedulesByRequest,
   getLessonsForEachDay,
   filterBookendedLessons2,
-  availabilityFromBlankDays
+  availabilityFromBlankDays,
+  fetchDriveTimes2
 };

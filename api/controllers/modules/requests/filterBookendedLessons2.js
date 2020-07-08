@@ -40,7 +40,7 @@ const filterBookendedLessons2 = (req, res, next) => {
       lesson.openEnded = false
     }
   }
-  lessonData = lessonData.filter(lesson => lesson.openEnded)
+  // lessonData = lessonData.filter(lesson => lesson.openEnded)
 
   req.body.lessonData = lessonData;
   console.log('REQ BODY LESSONDATA:', req.body.lessonData)

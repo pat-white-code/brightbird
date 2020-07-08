@@ -22,6 +22,7 @@ const getLessonsForEachDay = (req, res, next) => {
       data.forEach(lesson => {
         lesson.day_start_time = schedule.start_time;
         lesson.day_end_time = schedule.end_time;
+        lesson.max_drive = schedule.max_drive;
       })
       schedule.lessons_this_day = data
       req.body.lessonData.push(...data)
