@@ -4,10 +4,9 @@ const calculateTeacherAvailabilities2 = (req, res, next) => {
   let today = moment();
   console.log(today);
   // ^^^ so linter wont yell at me;
-  let lessons = req.body.lessonData;
+  const {lessonData, availabilities} = req.body
   let requestedTime = parseInt(req.body.lessonDuration);
-  let teacherAvailabilities = []
-  lessons.forEach(lesson => {
+  lessonData.forEach(lesson => {
     // if lesson_start_time + driveTime + requestedTime + next_lesson_drive + 5 Min is less than next_lesson_startMoment, create a new lesson (lesson end moment + driveTime)
     if(lesson.driveTime <= lesson.max_drive) {
       let availabilityAfter = {
@@ -23,7 +22,7 @@ const calculateTeacherAvailabilities2 = (req, res, next) => {
       // if availability after this lesson + driveTime + requestedTime > next Lesson start time, return it to the new array;
       if(availabilityAfter.startTime.clone().add(lesson.next_lesson_drive + requestedTime, 'minutes').valueOf() <= lesson.next_lesson_startMoment.valueOf()) {
         availabilityAfter.startTime = availabilityAfter.startTime.format('YYYY-MM-DD HH:mm:ss')
-        teacherAvailabilities.push(availabilityAfter)
+        availabilities.push(availabilityAfter)
       }
   
       let availabilityBefore = {
@@ -39,13 +38,13 @@ const calculateTeacherAvailabilities2 = (req, res, next) => {
       if(availabilityBefore.startTime.clone().subtract(lesson.prev_lesson_drive, 'minutes').valueOf() >= lesson.prev_lesson_endMoment.valueOf()) {
         //  formats for MYSQL
         availabilityBefore.startTime = availabilityBefore.startTime.format('YYYY-MM-DD HH:mm:ss')
-        teacherAvailabilities.push(availabilityBefore)
+        availabilities.push(availabilityBefore)
       }
     }
   })
 
-  req.body.teacherAvailabilities = teacherAvailabilities;
-  console.log('TEACHER AVAILS', req.body.teacherAvailabilities)
+  // req.body.teacherAvailabilities = teacherAvailabilities;
+  console.log('TEACHER AVAILS', req.body.availabilities)
   // next();
   res.status(200).send("Availabilities posted to body")
 }
