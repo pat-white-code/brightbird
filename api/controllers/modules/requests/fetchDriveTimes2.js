@@ -42,8 +42,8 @@ const fetchDriveTimes = (req, res, next) => {
       })
       req.body.lessonData = lessonsWithNeighboringDrives;
       console.log('REQUEST BODY LESSONDATA', req.body.lessonData)
-      // next();
-      res.status(200).send("DriveTimes Updated")
+      next();
+      // res.status(200).send("DriveTimes Updated")
     })
     .catch(console.error);
   }

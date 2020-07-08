@@ -3,6 +3,7 @@ const router = express.Router();
 const controller = require('../controllers/requests');
 const avails = require('../controllers/availabilities');
 const schedules = require('../controllers/schedules');
+const { calculateTeacherAvailabilities } = require('../controllers/requests');
 
 router.get('/client/:clientId', controller.getClientRequests);
 router.get('/:requestId', controller.getRequestInfo);
@@ -29,7 +30,8 @@ router.post('/new',
   controller.getLessonsForEachDay,
   controller.filterBookendedLessons2,
   controller.availabilityFromBlankDays,
-  controller.fetchDriveTimes2
+  controller.fetchDriveTimes2,
+  controller.calculateTeacherAvailabilities2
 )
 
 // Post request,
