@@ -31,7 +31,8 @@ router.post('/new',
   controller.filterBookendedLessons2,
   controller.availabilityFromBlankDays,
   controller.fetchDriveTimes2,
-  controller.calculateTeacherAvailabilities2
+  controller.calculateTeacherAvailabilities2,
+  avails.createTeacherAvailabilities2
 )
 
 // Post request,
