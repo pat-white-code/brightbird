@@ -8,9 +8,7 @@ const moment = require('moment');
 
 const filterBookendedLessons2 = (req, res, next) => {
   let lessonData = req.body.lessonData;
-  console.log('************')
   lessonData.forEach(lesson => {
-    console.log('------------------')
     lesson.startMoment = moment(lesson.day_time, 'YYYY-MM-DDTHH:mm:ss Z');
     console.log(lesson.startMoment);
     lesson.endMoment = lesson.startMoment.clone().add(lesson.duration, 'minutes');
@@ -46,8 +44,8 @@ const filterBookendedLessons2 = (req, res, next) => {
 
   req.body.lessonData = lessonData;
   console.log('REQ BODY LESSONDATA:', req.body.lessonData)
-  // next();
-  res.send('bookended lessons filtered');
+  next();
+  // res.send('bookended lessons filtered');
 }
 
 module.exports = filterBookendedLessons2;

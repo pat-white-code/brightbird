@@ -27,7 +27,8 @@ router.post('/new',
   controller.postRequest,
   controller.getSchedulesByRequest,
   controller.getLessonsForEachDay,
-  controller.filterBookendedLessons2
+  controller.filterBookendedLessons2,
+  controller.availabilityFromBlankDays
 )
 
 // Post request,
