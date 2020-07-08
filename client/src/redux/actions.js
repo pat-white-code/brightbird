@@ -198,7 +198,7 @@ export const getStudentsByUser = userId => {
 
 export const addRequest = request => {
   return dispatch => {
-    axios.post('/api/requests', request)
+    axios.post('/api/requests/new', request)
       .then(() => {
         dispatch({type:'DATABASE_UPDATED'})
       })
