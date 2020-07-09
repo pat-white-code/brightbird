@@ -3,19 +3,20 @@ const pool = require('../../../mysql/connection');
 const moment = require('moment');
 
 const postSubscriptionLessons = (req, res, next) => {
+  const { start_time_stamp, duration, studentId, teacherId, instrumentId, subscriptionId, price, endTime }
   console.log('LESSONS REQUEST OBJECT', req.body);
-  let dayTime = moment(req.body.dayTime, 'YYYY-MM-DD HH:mm:ss');
-  let endTime = dayTime.clone().add(req.body.duration, 'minutes').format('HH:mm:ss');
+  // let dayTime = moment(req.body.start_, 'YYYY-MM-DD HH:mm:ss');
+  // let endTime = dayTime.clone().add(req.body.duration, 'minutes').format('HH:mm:ss');
 
   let sql = `
   INSERT INTO lessons (
-    day_time, duration, student_id, teacher_id, inst_id, subscription_id, price, tandem, date_, start_time, end_time
+    day_time, duration, student_id, teacher_id, inst_id, subscription_id, price, tandem, date_, address_id, status_id
     )
   VALUES 
 
   ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) `;
 
-  let replacements = [req.body.dayTime, req.body.duration, req.body.studentId, req.body.teacherId, req.body.instrumentId, req.body.subscriptionId, req.body.price, 0, req.body.startDate, req.body.time_, endTime];
+  let replacements = [start_time_stamp, duration, studentId, teacherId, instrumentId, subscriptionId, price, 0, date, addressId, 1];
 
   let i = 0;
   while (i < 5) {
