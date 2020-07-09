@@ -3,7 +3,9 @@ const pool = require('../../../mysql/connection');
 const moment = require('moment');
 
 const postSubscriptionLessons = (req, res, next) => {
-  const { start_time_stamp, duration, studentId, teacherId, instrumentId, subscriptionId, price, endTime }
+  const { start_time_stamp, lesson_duration, student_id, teacher_id, instrument_id, subscriptionId, price, address_id } = req.body;
+  let date = moment(start_time_stamp).format('YYYY-MM-DD');
+  let weeklyLesson = moment(start_time_stamp);
   console.log('LESSONS REQUEST OBJECT', req.body);
   // let dayTime = moment(req.body.start_, 'YYYY-MM-DD HH:mm:ss');
   // let endTime = dayTime.clone().add(req.body.duration, 'minutes').format('HH:mm:ss');
@@ -16,16 +18,14 @@ const postSubscriptionLessons = (req, res, next) => {
 
   ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) `;
 
-  let replacements = [start_time_stamp, duration, studentId, teacherId, instrumentId, subscriptionId, price, 0, date, addressId, 1];
+  let replacements = [weeklyLesson.format('YYYY-MM-DD HH:mm:ss'), lesson_duration, student_id, teacher_id, instrument_id, subscriptionId, price, 0, date, address_id, 1];
 
   let i = 0;
   while (i < 5) {
-    dayTime = dayTime.clone().add(1, 'week');
-    endTime = dayTime.clone().add(req.body.duration, 'minutes').format('HH:mm:ss');
-    let startTime = dayTime.format('HH:mm:ss');
-    let date = dayTime.format('YYYY-MM-DD');
+    weeklyLesson.add(1, 'week');
+    date = weeklyLesson.format('YYYY-MM-DD');
     sql = sql.concat(', (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
-    replacements.push(dayTime.format('YYYY-MM-DD HH:mm:ss'), req.body.duration, req.body.studentId, req.body.teacherId, req.body.instrumentId, req.body.subscriptionId, req.body.price, 0, date, startTime, endTime);
+    replacements.push(weeklyLesson.format('YYYY-MM-DD HH:mm:ss'), lesson_duration, student_id, teacher_id, instrument_id, subscriptionId, price, 0, date, address_id, 1);
     i = i + 1;
   } 
 
@@ -34,7 +34,8 @@ const postSubscriptionLessons = (req, res, next) => {
   pool.query(sql, (err, rows)=> {
     if(err){return res.status(500).send(err)}
     console.log(`lessons for subscription ID: ${req.body.subscriptionId} created`)
-    next()
+    // next()
+    res.status(201).send(`lessons for subscription ID: ${subscriptionId} created`)
   })
 }
 

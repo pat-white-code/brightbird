@@ -23,7 +23,7 @@ const postSubscription = (req, res, next) => {
     default:
       price = 72;
   }
-
+  req.body.price = price;
   let sql = `
   INSERT INTO subscriptions (
     student_id, teacher_id, day_id, time_, start_date, instrument_id, lesson_price, lesson_duration, address_id, time_created
@@ -37,8 +37,8 @@ const postSubscription = (req, res, next) => {
   pool.query(sql, (err, results)=> {
     if(err) {return res.status(500).send(err)}
     req.body.subscriptionId = results.insertId;
-    res.status(200).json(req.body)
-    // next();
+    // res.status(200).json(req.body)
+    next();
   })
 }
 
