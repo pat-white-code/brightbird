@@ -10,11 +10,16 @@ const getTeacherAvailabilitiesByRequest = (req, res) => {
   console.log('TOMORROW', tomorrow);
   console.log('2 weeks', twoWeeksAway);
   let sql = `
-    SELECT start_time_stamp FROM teacher_availabilities
-      WHERE request_id = ?
-      AND teacher_id = ?
-      AND start_time_stamp < ?
-      AND start_time_stamp > ?;
+    SELECT teacher_availabilities.*,
+    teacher_id, student_id, instrument_id, lesson_duration, address_id
+    FROM teacher_availabilities
+    JOIN service_requests
+      ON request_id = service_requests.id
+          WHERE request_id = ?
+          AND teacher_id = ?
+          AND start_time_stamp < ?
+          AND start_time_stamp > ?
+  ;
   `
   let replacements = [requestId, teacherId, twoWeeksAway, tomorrow]
 

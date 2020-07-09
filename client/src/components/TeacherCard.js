@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardContent, CardMedia } from '@material-ui/core';
 // import TeacherAvailsHeader from './TeacherAvailsHeader';
 // import TeacherAvailsBody from './TeacherAvailsBody';
-import TeacherAvailsTable from './TeacherAvailsTable';
+import TeacherAvailsTable from '../containers/teacherAvailsTable';
 
 
 const useStyles = makeStyles((theme) => ({

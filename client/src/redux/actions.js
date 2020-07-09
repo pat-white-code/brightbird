@@ -187,6 +187,18 @@ export const getRequestsWithAvail = (userId) => {
   }
 }
 
+export const createSubscription = (avail) => {
+  return async dispatch => {
+    try {
+      let response = await axios.post('/api/subscriptions', avail)
+      console.log('AVAIL: ', avail);
+      console.log(response.data);
+      dispatch({type: 'DATABASE_UPDATED'})
+    }
+    catch(err) { alert(err) }
+  }
+}
+
 export const getStudentsByUser = userId => {
   return async dispatch => {
     let response = await axios.get(`/api/students/client/${userId}`)
