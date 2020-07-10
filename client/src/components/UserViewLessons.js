@@ -1,17 +1,19 @@
 import React from 'react';
 import { Container, Typography } from '@material-ui/core';
 import UserLessonsTable from '../containers/UserLessonsTable';
+import UserSubscriptions from '../containers/UserSubscriptions';
 
 
 
-const UserViewLessons = (props) => {
+const UserViewLessons = () => {
   return(
     <Container>
       <h1>
         Your Subscriptions
       </h1>
+      <UserSubscriptions />
       <h1>
-        Lesson Schedule
+        Upcoming Lessons
       </h1>
       <UserLessonsTable />
     </Container>

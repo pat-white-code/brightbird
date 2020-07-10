@@ -13,7 +13,9 @@ const getClientSubscriptions = (req, res) => {
     teachers.last_name AS teacher_last_name,
     instruments.instrument_name AS instrument,
     subscriptions.lesson_duration,
-    subscriptions.lesson_price
+    subscriptions.lesson_price,
+    subscriptions.instrument_id,
+    subscriptions.start_date
     FROM clients
     JOIN students
       ON students.client_id = clients.id
