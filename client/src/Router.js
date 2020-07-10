@@ -28,7 +28,7 @@ const Router = () => {
       <Route path='/teacher/home' component={TeacherHome} />
       <Route path='/teacher/login' component={TeacherLogin} />
       <Route path='/teacher/instruments' component={ViewInstruments} />
-      <Route path='user/schedule' component={UserViewLessons} />
+      <Route path='/user/schedule' component={UserViewLessons} />
     </Switch>
   )
 }

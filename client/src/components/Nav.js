@@ -44,6 +44,7 @@ export default function ButtonAppBar(props) {
             <>
               <Link to="/availability"><Button color="inherit" className={classes.menuButton}>Availability</Button></Link>
               <Link to="/requests"><Button color="inherit" className={classes.menuButton}>View Requests</Button></Link>
+              <Link to="/user/schedule"><Button color="inherit" className={classes.menuButton}>Schedule</Button></Link>
               <Link to="/"><Button color="secondary" variant='contained'>Log Out</Button></Link>
             </>
           )}

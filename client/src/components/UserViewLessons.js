@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
-import UserLessonsTable from './UserLessonsTable';
+import UserLessonsTable from '../containers/UserLessonsTable';
 
 
 
