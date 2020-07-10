@@ -25,7 +25,18 @@ export const userLogin = (user) => {
           dispatch(getStudentsByUser(userId));
           dispatch(getAddressesByUser(userId));
           dispatch(getUserLessons(userId));
+          dispatch(getUserSubscriptions(userId));
         })
+  }
+}
+
+export const getUserSubscriptions = userId => {
+  return async dispatch => {
+    try {
+      let response = await axios.get(`/api/subscriptions/client/${userId}`)
+      let subscriptions = response.data;
+      dispatch({type: 'GETS_USER_SUBSCRIPTIONS', payload: subscriptions})
+    } catch(err) { alert(err) }
   }
 }
 

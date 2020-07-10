@@ -17,6 +17,8 @@ const user = (state = {}, action) => {
       return {...state, addresses: action.payload};
     case 'GETS_USER_LESSONS':
       return {...state, lessons: action.payload};
+    case 'GETS_USER_SUBSCRIPTIONS':
+      return {...state, subscriptions: action.payload};
     default: return state;
   }
 }

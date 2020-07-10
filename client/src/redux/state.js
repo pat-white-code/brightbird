@@ -6,7 +6,8 @@ const state = {
     addressId: null,
     students: [],
     addresses: [],
-    lessons: []
+    lessons: [],
+    subscriptions: []
   },
   requests: [],
   // requestIsLoaded: false,
