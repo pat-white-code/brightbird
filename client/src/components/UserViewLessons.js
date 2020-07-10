@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Typography } from '@material-ui/core';
 import UserLessonsTable from '../containers/UserLessonsTable';
+import SamplePagination from './SamplePagination';
 
 
 
@@ -11,6 +12,7 @@ const UserViewLessons = (props) => {
         Lesson Schedule
       </h1>
       <UserLessonsTable />
+      {/* <SamplePagination /> */}
     </Container>
   )
 }
