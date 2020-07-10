@@ -115,13 +115,22 @@ export default function UserLessonsTable(props) {
           ).map((lesson) => (
             <TableRow key={lessons.id}>
               <TableCell component="th" scope="row">
-                {moment(lesson.day_time).format('MM/DD/YYYY')}
+                {moment(lesson.day_time).format('dddd MMMM DD')}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {lesson.student_first_name}
+                {moment(lesson.day_time).format('hh:mm a')}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {lesson.teacher_first_name}
+                {`${lesson.student_first_name} ${lesson.student_last_name}`}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right">
+                {`${lesson.duration}-Min ${lesson.instrument}`} 
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right">
+                <em>(${`${lesson.price}`})</em> 
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right">
+                {`${lesson.teacher_first_name} ${lesson.teacher_last_name}`}
               </TableCell>
             </TableRow>
           ))}
