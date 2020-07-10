@@ -1,4 +1,5 @@
 import axios from 'axios';
+import moment from 'moment';
 
 export const initialLogin = (userId) => {
   return {type: 'INITIAL_LOGIN', payload: userId}
@@ -23,6 +24,7 @@ export const userLogin = (user) => {
           dispatch(getRequestsWithAvail(userId));
           dispatch(getStudentsByUser(userId));
           dispatch(getAddressesByUser(userId));
+          dispatch(getUserLessons(userId));
         })
   }
 }
@@ -278,122 +280,14 @@ export const teacherLogin = (teacherId) => {
   return {type:'TEACHER_LOGS_IN', payload:teacherId}
 }
 
-// export const initialAddress = (addressId) => {
-//   return {type: 'INITIAL_ADDRESS', payload: addressId}
-// }
-
-// export const fetchTeacherAvailability = (userId) => {
-//   return (dispatch) => {
-//     axios.get(`/api/requests/client/${userId}`)
-//       .then(res => {
-//         console.log('FETCH REQUESTS:', res)
-//         let requests = res.data
-//         requests.forEach(request => {
-//           const { id, student_age, instrument_id, zip_code } = request
-//           axios.get(`api/teachers/?instId=${instrument_id}&zipCode=${zip_code}&studentAge=${student_age}`)
-//             .then(res => {
-//               console.log(res, 'REQUEST ID:', id)
-//               request.availableTeachers = res.data
-//               console.log(request);
-//               dispatch({type: 'FETCHES_TEACHER_AVAILABILITY', payload:request})
-//             })
-//             // .then(dispatch({type:'FETCHES_TEACHER_AVAILABILITY', payload:requests}))
-//         })
-//       })
-//   }
-// }
-
-// export const fetchQualifiedTeachers = (request) => {
-//   return (dispatch) => {
-//   // const { id, student_age, instrument_id, zip_code } = request
-//   axios.get(`api/teachers/?instId=${request.instrument_id}&zipCode=${request.zip_code}&studentAge=${request.student_age}`)
-//     .then(res => {
-//       console.log('FETCH QUALIFIED TEACHERS: ',res)
-//       let teachers = res.data
-//       dispatch({type:'FETCH_QUALIFIED_TEACHERS', payload: {requestId:request.id, teachers}})
-//     })
-//   }
-// }
-
-// export const fetchTeacherSchedule = request => {
-//   return (dispatch) => {
-//     request.availableTeachers.forEach(teacher => dispatch({type:'FETCHES_TEACHER_SCHEDULE', payload:{teacherId: teacher.teacher_id, schedule: [1, 2, 3]}}))
-//   }
-// }
-
-// export const getUserBusinesses = userId => {
-//   return (dispatch) => {
-//     axios.get(`/businesses/${userId}`)
-//       .then(res => {
-//         console.log(res)
-//         let businesses = res.data
-//         dispatch(getsUserBusinesses(businesses))
-//       })
-//   }
-// }
-
-//   axios.post('/api/students', {firstName, lastName, dob, clientId:props.user.id})
-//       .then(res => {
-//         console.log(res)
-//         console.log('postRequests', res.data.id, instrumentId, lessonDuration, studentAge, addressId, experience)
-//         axios.post('/api/requests', {studentId: res.data.id, instrumentId, lessonDuration, studentAge, addressId, experience})
-//         .then(res => console.log(res))
-//         .then(()=> {
-//           // If this is the modal, close modal, if this is the initial add student page, push history to availability.
-//           if(props.handleClose) {
-//             props.handleClose()
-//           } else {
-//             history.push('/availability')
-//           }
-//         })
-//       }).catch(err => alert(err))
-
-// export const deleteRequest = requestId => {
-//   return dispatch => {
-//     axios.delete(`/api/requests/delete/${requestId}`)
-//       .then(response => response.data)
-//       .then(()=> dispatch({type:'DATABASE_UPDATED'}))
-//       .catch(err=> console.log(err))
-//   }
-// }
-
-// export const promiseClientRequests = async (userId) => {
-//   return (dispatch) => {
-//     return new Promise ((resolve, reject) => {
-//       dispatch({ type: 'SET_LOADING', loading: true});
-//       axios.get(`/api/requests/client/${userId}`)
-//         .then(res => {
-//           console.log(res);
-//           let requests = res.data
-//           dispatch({type: 'FETCH_SUCCESSFUL',payload:requests});
-//           dispatch({type: 'SET_LOADING', loading: false});
-//           resolve(requests);
-//         }).catch(err => {console.log('ERR',err); reject(err)})
-//     })
-//   }
-// }
-
-// export const getSchedulesByRequest = (request) => {
-//   return (dispatch) => {
-//     axios.get(`/api/schedules/request/${request.id}?instrumentId=${request.instrument_id}&zipCode=${request.zip_code}&studentAge=${request.student_age}`)
-//       .then(res => {
-//         console.log(res);
-//         let schedules = res.data;
-//         let updatedSchedules = schedules.map(schedule => {
-//           return {...schedule, driveTime:10}
-//         })
-//         dispatch({type: 'FETCHES_TEACHER_SCHEDULES', payload:updatedSchedules})
-//       })
-//       // .then(schedules => dispatch({type: 'FETCHES_TEACHER_SCHEDULES', payload:schedules}))
-//         // dispatch({type: 'FETCHES_TEACHER_SCHEDULES', payload:schedules})
-//   }
-// }
-
-// export const getAvailabilitiesByUser = (userId) => {
-//   return async dispatch => {
-//     let response = await axios.get(`/api/availabilities/client/${userId}`)
-//     console.log(response);
-//     let availabilities = response.data;
-//     dispatch({type:'GETS_AVAILABILITIES', payload:availabilities})
-//   }
-// }
+export const getUserLessons = (userId) => {
+  const date = moment().format('YYYY-MM-DD');
+  return async dispatch => {
+    try {
+      let response = await axios.get(`/api/lessons/user/${userId}?date=${date}`)
+      let lessons = response.data
+      dispatch({type:'GETS_USER_LESSONS', payload: lessons})
+    } 
+    catch (err) { alert(err) }
+  }
+}

@@ -11,6 +11,7 @@ import TeacherSignup from './components/TeacherSignup';
 import TeacherHome from './containers/TeacherHome';
 import TeacherLogin from './containers/TeacherLogin';
 import ViewInstruments from './containers/ViewInstruments';
+import UserViewLessons from './components/UserViewLessons';
 
 
 const Router = () => {
@@ -27,6 +28,7 @@ const Router = () => {
       <Route path='/teacher/home' component={TeacherHome} />
       <Route path='/teacher/login' component={TeacherLogin} />
       <Route path='/teacher/instruments' component={ViewInstruments} />
+      <Route path='user/schedule' component={UserViewLessons} />
     </Switch>
   )
 }

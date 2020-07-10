@@ -5,7 +5,8 @@ const state = {
     isLoggedIn: false,
     addressId: null,
     students: [],
-    addresses: []
+    addresses: [],
+    lessons: []
   },
   requests: [],
   // requestIsLoaded: false,
