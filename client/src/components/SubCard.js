@@ -45,10 +45,10 @@ export default function SubCard(props) {
           title={sub.instrument_name}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom component="h5">
             {`${sub.day_of_week}s at ${moment('2020-01-01'+' ' + sub.time_).format('h:mm a')}`}
           </Typography>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom component="h5">
             {`${sub.lesson_duration}-minute ${sub.instrument} with ${sub.teacher_first_name} ${sub.teacher_last_name}`}
           </Typography>
         </CardContent>
