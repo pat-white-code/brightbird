@@ -8,7 +8,7 @@ const getTeacherSubscriptions = require('./modules/subscriptions/getTeacherSubsc
 const putSubscription = require('./modules/subscriptions/putSubscription');
 const putLesson = require('./modules/subscriptions/putLesson');
 const deleteLessons = require('./modules/subscriptions/deleteLessons');
-const endSubscription = require('./modules/subscriptions/endSubscription');
+const deleteSub = require('./modules/subscriptions/deleteSub');
 const mailDeactivatedSubscription = require('./modules/subscriptions/mailDeactivatedSubscription');
 
 
@@ -23,6 +23,6 @@ module.exports = {
   putSubscription,
   putLesson,
   deleteLessons,
-  endSubscription,
+  deleteSub,
   mailDeactivatedSubscription
 }

@@ -5,6 +5,7 @@ const getLastLesson = require('./modules/lessons/getLastLesson');
 const getLessonsByTeacher = require('./modules/lessons/getLessonsByTeacher');
 const getLessonsByTeacherDate = require('./modules/lessons/getLessonsByTeacherDate');
 const getLessonsByUser = require('./modules/lessons/getLessonsByUser');
+const deleteLessonsBySub = require('./modules/lessons/deleteLessonsBySub');
 
 module.exports = {
   takeAttendance,
@@ -13,5 +14,6 @@ module.exports = {
   getLastLesson,
   getLessonsByTeacher,
   getLessonsByTeacherDate,
-  getLessonsByUser
+  getLessonsByUser,
+  deleteLessonsBySub
 }
