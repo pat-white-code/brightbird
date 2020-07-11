@@ -34,8 +34,8 @@ const postSubscriptionLessons = (req, res, next) => {
   pool.query(sql, (err, rows)=> {
     if(err){return res.status(500).send(err)}
     console.log(`lessons for subscription ID: ${req.body.subscriptionId} created`)
-    // next()
-    res.status(201).send(`lessons for subscription ID: ${subscriptionId} created`)
+    next()
+    // res.status(201).send(`lessons for subscription ID: ${subscriptionId} created`)
   })
 }
 

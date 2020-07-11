@@ -68,11 +68,11 @@ const mailNewSubscription = (req, res) => {
   
     // create reusable transporter object using the default SMTP transport
     const transporter = nodemailer.createTransport({
-      host: 'smtp.ethereal.email',
+      host: 'smtpout.secureserver.net',
       port: 587,
       auth: {
-          user: 'emmy25@ethereal.email',
-          pass: 'uJ1SuU6XhgPznKkZ7r'
+          user: 'info@westlakelessons.com',
+          pass: 'JoeBiden354'
       },
       tls: {
         rejectUnauthorized: false
@@ -81,8 +81,8 @@ const mailNewSubscription = (req, res) => {
   
     // send mail with defined transport object
     let info = await transporter.sendMail({
-      from: "Emmy Corkery <emmy25@ethereal.email>", // sender address
-      to: "bar@example.com, baz@example.com, info@westlakelessons.com", // list of receivers
+      from: "BrightBird Music <info@westlakelessons.com>", // sender address
+      to: "pat.k.white@gmail.com", // list of receivers
       subject: `Lesson Confirmation - ${subjectLine} w/ ${teacherName}`, // Subject line
       text: "Subscription info", // plain text body
       html: output // html body

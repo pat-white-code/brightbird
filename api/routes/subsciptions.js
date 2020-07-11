@@ -10,7 +10,7 @@ router.get('/teacher/:teacherId', controller.getTeacherSubscriptions);
 
 router.post('/', controller.postSubscription, controller.postSubscriptionLessons, controller.mailNewSubscription);
 
-router.post('/send', controller.mailNewSubscription);
+router.post('/mailTest', controller.mailTest);
 
 // router.put('/deactivate/:subscriptionId', 
 //   controller.endSubscription,

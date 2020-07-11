@@ -10,7 +10,7 @@ const putLesson = require('./modules/subscriptions/putLesson');
 const deleteLessons = require('./modules/subscriptions/deleteLessons');
 const deleteSub = require('./modules/subscriptions/deleteSub');
 const mailDeactivatedSubscription = require('./modules/subscriptions/mailDeactivatedSubscription');
-
+const mailTest = require('./modules/subscriptions/mailTest');
 
 module.exports = {
   getClientSubscriptions,
@@ -24,5 +24,6 @@ module.exports = {
   putLesson,
   deleteLessons,
   deleteSub,
-  mailDeactivatedSubscription
+  mailDeactivatedSubscription,
+  mailTest
 }
