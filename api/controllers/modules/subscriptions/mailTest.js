@@ -32,7 +32,7 @@ const mailTest = (req, res) => {
   
     // send mail with defined transport object
     let info = await transporter.sendMail({
-      from: "BrightBird Music <info@westlakelessons.com>", // sender address
+      from: "BrightBird Music <no-reply@brightbirdmusic.com>", // sender address
       to: "pat.k.white@gmail.com", // list of receivers
       subject: `Lesson Confirmation`, // Subject line
       text: "Subscription info", // plain text body
