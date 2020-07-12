@@ -1,9 +1,9 @@
 const transporter = nodemailer.createTransport({
-  host: 'smtpout.secureserver.net',
+  host: process.env.EMAIL_SMTP,
   port: 587,
   auth: {
-      user: 'info@westlakelessons.com',
-      pass: 'JoeBiden354'
+      user: process.env.EMAIL_PASSWORD,
+      pass: process.env.EMAIL_USERNAME
   },
   tls: {
     rejectUnauthorized: false

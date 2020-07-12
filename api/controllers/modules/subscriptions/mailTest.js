@@ -19,11 +19,11 @@ const mailTest = (req, res) => {
   
     // create reusable transporter object using the default SMTP transport
     const transporter = nodemailer.createTransport({
-      host: 'smtpout.secureserver.net',
+      host: process.env.EMAIL_SMTP,
       port: 587,
       auth: {
-          user: 'info@westlakelessons.com',
-          pass: 'JoeBiden354'
+          user: process.env.EMAIL_USERNAME,
+          pass: process.env.EMAIL_PASSWORD
       },
       tls: {
         rejectUnauthorized: false
