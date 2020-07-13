@@ -17,6 +17,7 @@ router.get('/refresh/all',
 router.get('/refresh/user/:clientId',
   // delete all availabilities with userId
   // get all requests from user
+  controller.deleteClientAvailabilities,
   requests.getClientRequestsNext,
   controller.refreshAvailabilities
   // refresh user requests
