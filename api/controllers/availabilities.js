@@ -4,6 +4,7 @@ const getAvailabilities = require('./modules/availabilities/getAvailabilities');
 const getTeacherAvailabilitiesByRequest = require('./modules/availabilities/getTeacherAvailabilitiesByReq');
 const deleteAvailsByRequest = require('./modules/availabilities/deleteAvailsByRequest');
 const createTeacherAvailabilities2 = require('./modules/availabilities/createTeacherAvailabilities2');
+const refreshAvailabilities = require('./modules/availabilities/refreshAvailabilities');
 
 module.exports = {
   createTeacherAvailabilities,
@@ -11,5 +12,6 @@ module.exports = {
   getAvailabilities,
   getTeacherAvailabilitiesByRequest,
   deleteAvailsByRequest,
-  createTeacherAvailabilities2
+  createTeacherAvailabilities2,
+  refreshAvailabilities
 }

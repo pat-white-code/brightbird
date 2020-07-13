@@ -8,6 +8,7 @@ const { calculateTeacherAvailabilities } = require('../controllers/requests');
 router.get('/client/:clientId', controller.getClientRequests);
 router.get('/:requestId', controller.getRequestInfo);
 router.get('/teachers/:requestId', controller.getTeachersByRequest);
+router.get('/', controller.getAllRequests);
 
 router.post('/', 
   controller.postRequest, 
@@ -26,6 +27,16 @@ router.post('/test',
 
 router.post('/new',
   controller.postRequest,
+  controller.getSchedulesByRequest,
+  controller.getLessonsForEachDay,
+  controller.filterBookendedLessons2,
+  controller.availabilityFromBlankDays,
+  controller.fetchDriveTimes2,
+  controller.calculateTeacherAvailabilities2,
+  avails.createTeacherAvailabilities2
+)
+
+router.post('/refresh', 
   controller.getSchedulesByRequest,
   controller.getLessonsForEachDay,
   controller.filterBookendedLessons2,

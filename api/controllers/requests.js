@@ -17,6 +17,7 @@ const filterBookendedLessons2 = require('./modules/requests/filterBookendedLesso
 const availabilityFromBlankDays = require('./modules/requests/availabilityFromBlankDays');
 const fetchDriveTimes2 = require('./modules/requests/fetchDriveTimes2');
 const calculateTeacherAvailabilities2 = require('./modules/requests/calculateTeacherAvailabilities2');
+const getAllRequests = require('./modules/requests/getAllRequests');
 
 module.exports = {
   postRequest, 
@@ -37,5 +38,6 @@ module.exports = {
   filterBookendedLessons2,
   availabilityFromBlankDays,
   fetchDriveTimes2,
-  calculateTeacherAvailabilities2
+  calculateTeacherAvailabilities2,
+  getAllRequests
 };
