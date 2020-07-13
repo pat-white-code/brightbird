@@ -18,15 +18,26 @@ export const userLogin = (user) => {
         .then(json => {
           console.log(json)
           let userId = json.data.id
+          dispatch(refreshUserAvails(userId));
           // document.cookie = "loggedIn=true;max-age=60*1000"
           dispatch(isLoggedIn());
           dispatch(setUserId(userId));
-          dispatch(getRequestsWithAvail(userId));
           dispatch(getStudentsByUser(userId));
           dispatch(getAddressesByUser(userId));
           dispatch(getUserLessons(userId));
           dispatch(getUserSubscriptions(userId));
+          dispatch(getRequestsWithAvail(userId));
         })
+  }
+}
+
+export const refreshUserAvails = userId => {
+  return async dispatch => {
+    try {
+      let response = await axios.get(`/api/availabilities/refresh/user/${userId}`);
+      console.log(response.data);
+      dispatch({type: 'DATABASE_UPDATED'})
+    } catch(err) {alert(err)}
   }
 }
 
