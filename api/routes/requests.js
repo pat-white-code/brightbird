@@ -46,6 +46,15 @@ router.post('/refresh',
   avails.createTeacherAvailabilities2
 )
 
+router.post('/availabilities/', 
+  controller.getSchedulesByRequest,
+  controller.getLessonsForEachDay,
+  controller.filterBookendedLessons2,
+  controller.availabilityFromBlankDays,
+  controller.fetchDriveTimes2,
+  controller.calculateTeacherAvailabilities2,
+  )
+
 // Post request,
 // Get schedules by teachers who match that instrument
 // For each schedule, fetch lessons for that lesson day. If there is no lesson, attach to request body as blank days. Otherwise attach to body as lessons.

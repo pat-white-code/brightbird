@@ -14,4 +14,12 @@ router.get('/refresh/all',
   controller.refreshAvailabilities
   );
 
+router.get('/refresh/user/:clientId',
+  // delete all availabilities with userId
+  // get all requests from user
+  requests.getClientRequestsNext,
+  controller.refreshAvailabilities
+  // refresh user requests
+)
+
 module.exports = router;

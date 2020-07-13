@@ -18,6 +18,7 @@ const availabilityFromBlankDays = require('./modules/requests/availabilityFromBl
 const fetchDriveTimes2 = require('./modules/requests/fetchDriveTimes2');
 const calculateTeacherAvailabilities2 = require('./modules/requests/calculateTeacherAvailabilities2');
 const getAllRequests = require('./modules/requests/getAllRequests');
+const getClientRequestsNext = require('./modules/requests/getClientRequestsNext');
 
 module.exports = {
   postRequest, 
@@ -39,5 +40,6 @@ module.exports = {
   availabilityFromBlankDays,
   fetchDriveTimes2,
   calculateTeacherAvailabilities2,
-  getAllRequests
+  getAllRequests,
+  getClientRequestsNext
 };

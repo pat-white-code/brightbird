@@ -1,15 +1,10 @@
 const axios = require('axios')
-var throttle = require('lodash.throttle');
 
 const refreshAvailabilities = async (req, res, next) => {
-  // let delay = 0;
+
   console.log('REQ BODY', req.body);
   const {requests} = req.body;
-  // const sendRequest = (payload) => {
-  //   axios.post('/api/requests/refresh', payload)
-  //     .then(() => console.log('success'))
-  //     .catch(err => console.log(err));
-  // }
+
   let responses = await Promise.all(requests.map(async request => {
     try { 
       let payload = { 
