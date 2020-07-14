@@ -18,10 +18,6 @@ export default function AvailabilitiesTable(props) {
   const { createSubscription } = props;
   const classes = useStyles();
 
-  const bookeLesson = (avail) => {
-    createSubscription(avail);
-  }
-
   return (
     <TableContainer>
       <Table className={classes.table} aria-label="simple table">
@@ -37,7 +33,7 @@ export default function AvailabilitiesTable(props) {
             <TableRow key={avail.teacher_availability_id}>
               <TableCell align="center">{`${moment(avail.start_time_stamp, 'YYYY-MM-DDTHH:mm:ss Z').format('dddd')}s at ${moment(avail.start_time_stamp, 'YYYY-MM-DDTHH:mm:ss Z').format('h:mm a')}`}</TableCell>
               <TableCell align="center">{moment(avail.start_time_stamp).format('MM/DD')}</TableCell>
-              <TableCell align="center"><button onClick={()=>{bookeLesson(avail)}}>Book Lesson</button></TableCell>
+              <TableCell align="center"><button onClick={()=>{createSubscription(avail)}}>Book Lesson</button></TableCell>
             </TableRow>
           ))}
         </TableBody>

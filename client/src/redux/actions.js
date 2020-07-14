@@ -217,7 +217,7 @@ export const createSubscription = (avail) => {
       let response = await axios.post('/api/subscriptions', avail)
       console.log('AVAIL: ', avail);
       console.log(response.data);
-      dispatch({type: 'DATABASE_UPDATED'})
+      dispatch({type:'DATABASE_UPDATED'})
     }
     catch(err) { alert(err) }
   }

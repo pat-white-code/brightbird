@@ -31,11 +31,11 @@ const postSubscriptionLessons = (req, res, next) => {
 
   sql = sql.concat(';')
   sql = mysql.format(sql, replacements);
-  pool.query(sql, (err, rows)=> {
+  pool.query(sql, (err, results)=> {
     if(err){return res.status(500).send(err)}
     console.log(`lessons for subscription ID: ${req.body.subscriptionId} created`)
-    next()
-    // res.status(201).send(`lessons for subscription ID: ${subscriptionId} created`)
+    // next()
+    res.status(201).send(results)
   })
 }
 
