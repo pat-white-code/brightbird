@@ -1,9 +1,19 @@
 const fetch = require('node-fetch');
 const mysql = require('mysql');
 const pool = require('../mysql/connection');
+require('dotenv').config();
+
 let fetchDelay = 0;
 
-let streets = ['Bay Hill Dr, Austin, TX 78746', 'Doswell Ln, Austin, TX 78739', 'Dogwood creek Drive, Austin, TX 78746'];
+let streets = [
+  'Bay Hill Dr, Austin, TX 78746', 
+  'Doswell Ln, Austin, TX 78739', 
+  'Dogwood Creek Dr, Austin, TX 78746',
+  'Allegro Ln, West Lake Hills, TX 78746',
+  'Basin Ledge, West Lake Hills, TX 78746',
+  'Blackacre Trl, West Lake Hills, TX 78746',
+  'Bluff Park Cir, West Lake Hills, TX 78746'
+];
 
 for(let i = 1; i < streets.length; i++) {
   for(let j = 0 ; j < i ; j ++) {
@@ -15,7 +25,7 @@ for(let i = 1; i < streets.length; i++) {
     let destination = street2.replace(/ /g, "+");
 
     setTimeout(()=> {}, fetchDelay)
-    fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${origin}&destinations=${destination}&traffic_mode1=pessimistic&key=AIzaSyAzq7W-eXQNz0ptPkQqWi9LBluABETr7Zs`)
+    fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${origin}&destinations=${destination}&traffic_mode1=pessimistic&key=${process.env.GOOGLE_DISTANCE_KEY}`)
       .then(res => res.json())
       .then(json => json.rows[0].elements[0].duration.value)
       .then(driveTime => {

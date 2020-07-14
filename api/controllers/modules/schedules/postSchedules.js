@@ -26,7 +26,7 @@ postSchedules = (req, res) => {
   
   let i = 0;
 
-  while(i < 5) {
+  while(i < 50) {
     startTime = startTime.add(1, 'week');
     endTime = endTime.add(1, 'week');
     sql = sql.concat(', (?, ?, ?, ?, ?, ?)')

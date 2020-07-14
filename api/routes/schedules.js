@@ -8,6 +8,4 @@ router.get('/recurring/:teacherId', controller.getRecurringSchedules);
 router.get('/request/:requestId', controller.getSchedulesByRequest);
 router.get('/request-parameters/', controller.getSchedulesByExperience);
 
-router.post('/recurring', controller.postRecurringSchedule, controller.postSchedules);
-
 module.exports = router;
