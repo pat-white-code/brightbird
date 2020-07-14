@@ -6,7 +6,7 @@ const fetchDriveTimes = (req, res, next) => {
   const updateLessons = async () => {
     let updatedLessons = await Promise.all(lessonData.map(async lesson => {
       if(!lesson.openEnded) {
-        lesson.driveTime = 1000
+        lesson.driveTime = 15
         return lesson;
       }
       let origin = lesson.address.replace(/\d+ /, "");
