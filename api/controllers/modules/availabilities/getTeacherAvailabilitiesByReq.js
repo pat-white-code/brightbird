@@ -15,10 +15,11 @@ const getTeacherAvailabilitiesByRequest = (req, res) => {
     FROM teacher_availabilities
     JOIN service_requests
       ON request_id = service_requests.id
-          WHERE request_id = ?
-          AND teacher_id = ?
-          AND start_time_stamp < ?
-          AND start_time_stamp > ?
+    WHERE request_id = ?
+    AND teacher_id = ?
+    AND start_time_stamp < ?
+    AND start_time_stamp > ?
+    ORDER BY start_time_stamp;
   ;
   `
   let replacements = [requestId, teacherId, twoWeeksAway, tomorrow]

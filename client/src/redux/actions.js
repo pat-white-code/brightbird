@@ -24,9 +24,9 @@ export const userLogin = (user) => {
           dispatch(setUserId(userId));
           dispatch(getStudentsByUser(userId));
           dispatch(getAddressesByUser(userId));
+          dispatch(getRequestsWithAvail(userId));
           dispatch(getUserLessons(userId));
           dispatch(getUserSubscriptions(userId));
-          dispatch(getRequestsWithAvail(userId));
         })
   }
 }
