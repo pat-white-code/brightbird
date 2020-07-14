@@ -6,7 +6,7 @@ const moment = require('moment');
 const getTeacherAvailabilitiesByRequest = (req, res) => {
   const {requestId, teacherId} = req.params
   const twoWeeksAway = moment().add(2, 'weeks').format('YYYY-MM-DD HH:mm:ss')
-  const tomorrow = moment().subtract(1, 'year').format('YYYY-MM-DD HH:mm:ss')
+  const tomorrow = moment().subtract(1, 'day').format('YYYY-MM-DD HH:mm:ss')
   console.log('TOMORROW', tomorrow);
   console.log('2 weeks', twoWeeksAway);
   let sql = `

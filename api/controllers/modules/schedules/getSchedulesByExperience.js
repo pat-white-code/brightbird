@@ -1,9 +1,11 @@
 const mysql = require('mysql');
 const pool = require('../../../mysql/connection');
+const moment = require('moment');
 
 const getSchedulesByRequest = (req, res) => {
   const {instrumentId, zipCode, studentAge, exp} = req.query;
-
+  let today = moment().format('YYYY-MM-DD');
+  let twoWeeks = moment().add(2, 'weeks').format('YYY-MM-DD');
   let sql = `
       SELECT schedules.*, teachers.max_drive FROM schedules
     JOIN teachers 
@@ -16,9 +18,11 @@ const getSchedulesByRequest = (req, res) => {
     AND instrument_id = ?
     AND min_age < ?
     AND max_exp > ?
+    AND date_ > ?
+    AND date_ < ?
     ORDER BY teacher_id, start_time;
   `
-  let replacements = [zipCode, instrumentId, studentAge, exp];
+  let replacements = [zipCode, instrumentId, studentAge, exp, today, twoWeeks];
 
   sql = mysql.format(sql, replacements)
 

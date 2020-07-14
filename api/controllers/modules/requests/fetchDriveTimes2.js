@@ -13,11 +13,16 @@ const fetchDriveTimes = (req, res, next) => {
       origin = origin.replace(/ /g, "+");
       let destination = lesson.request_address.replace(/\d+ /, "");
       destination = destination.replace(/ /g, "+");
-      let response = await axios.get(`http://${process.env.IP}/api/driveTimes?origin=${origin}&destination=${destination}`)
-      if(response.data[0]){
-        let driveTimeSeconds = response.data[0].drive_time_seconds;
-        lesson.driveTime = Math.ceil(driveTimeSeconds / 60);
-      } else { lesson.driveTime = 0 }
+      // .then(json => json.rows[0].elements[0].duration.value)
+      let response = await axios.get(`https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${origin}&destinations=${destination}&traffic_mode1=pessimistic&key=${process.env.GOOGLE_DISTANCE_KEY}`)
+      let data = response.data
+      let drive_time_seconds = data.rows[0].elements[0].duration.value;
+      lesson.driveTime = Math.ceil(drive_time_seconds / 60);
+      // let response = await axios.get(`http://${process.env.IP}/api/driveTimes?origin=${origin}&destination=${destination}`)
+      // if(response.data[0]){
+      //   let driveTimeSeconds = response.data[0].drive_time_seconds;
+      //   lesson.driveTime = Math.ceil(driveTimeSeconds / 60);
+      // } else { lesson.driveTime = 0 }
       // console.log('RESPONSE', response.data);
       return lesson
     }))
