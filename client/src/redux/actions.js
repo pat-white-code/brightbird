@@ -51,6 +51,16 @@ export const getUserSubscriptions = userId => {
   }
 }
 
+export const deleteSub = subId => {
+  return async dispatch => {
+    try {
+      let response = await axios.delete(`/api/subscriptions/deactivate/${subId}`);
+      console.log(response);
+      dispatch({type: 'DATABASE_UPDATED'})
+    } catch(err) {alert(err)}
+  }
+}
+
 export const teacherCredentials = teacher => {
   return async dispatch => {
     try {

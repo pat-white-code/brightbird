@@ -21,7 +21,7 @@ const useStyles = makeStyles({
 
 export default function SubCard(props) {
   const classes = useStyles();
-  const { sub } = props;
+  const { sub, deleteSub } = props;
 
   const getInstrumentImage = (instrumentId) => {
     switch(instrumentId) {
@@ -55,7 +55,7 @@ export default function SubCard(props) {
       </CardActionArea>
       <CardActions>
         {/* <EditRequestModal request={props.request} /> */}
-        <IconButton>
+        <IconButton onClick={() =>{ deleteSub(sub.id) }}>
           <DeleteIcon />
         </IconButton>
       </CardActions>

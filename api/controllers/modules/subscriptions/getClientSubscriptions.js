@@ -27,7 +27,8 @@ const getClientSubscriptions = (req, res) => {
       ON subscriptions.teacher_id = teachers.id
 	JOIN instruments
 		ON instruments.id = subscriptions.instrument_id
-    WHERE clients.id = ?;
+    WHERE clients.id = ?
+    AND subscriptions.active = TRUE;
   `
   let replacements = [req.params.clientId];
   sql = mysql.format(sql, replacements);
