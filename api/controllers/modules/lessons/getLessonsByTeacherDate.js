@@ -12,7 +12,8 @@ const getLessonsByTeacherDate = (req, res) => {
     JOIN addresses
       ON addresses.id = lessons.address_id
     WHERE teacher_id = ?
-    AND date_ = ?;
+    AND date_ = ?
+    ORDER BY day_time;
   `
 
   let replacements = [requestId, teacherId, date];

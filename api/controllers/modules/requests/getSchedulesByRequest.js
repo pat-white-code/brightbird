@@ -13,6 +13,7 @@ const getSchedulesByRequest = (req, res, next) => {
     console.log('studentAge', studentAge);
     console.log('INSTRUMENT ID', instrumentId);
     console.log('experience', experience);
+    // schedules/getSchedulesByExperience
     let response = await axios.get(`http://localhost:3000/api/schedules/request-parameters/?instrumentId=${instrumentId}&zipCode=${zipCode}&studentAge=${studentAge}&exp=${experience}`);
     return response;
   }
@@ -20,7 +21,7 @@ const getSchedulesByRequest = (req, res, next) => {
   getSchedules()
     .then(response =>{
       req.body.schedules = response.data;
-      // console.log('Schedules', req.body.schedules)
+      console.log('Schedules', req.body.schedules)
       next();
       // res.status(200).send("Data Found")
     })

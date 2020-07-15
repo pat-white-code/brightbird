@@ -43,8 +43,7 @@ const calculateTeacherAvailabilities2 = (req, res, next) => {
     }
   })
 
-  // req.body.teacherAvailabilities = teacherAvailabilities;
-  // console.log('TEACHER AVAILS', req.body.availabilities)
+  console.log('TEACHER AVAILS', req.body.availabilities)
   next();
   // res.status(200).send("Availabilities posted to body")
 }

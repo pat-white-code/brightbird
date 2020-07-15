@@ -5,7 +5,7 @@ const moment = require('moment');
 const getSchedulesByRequest = (req, res) => {
   const {instrumentId, zipCode, studentAge, exp} = req.query;
   let today = moment().format('YYYY-MM-DD');
-  let twoWeeks = moment().add(2, 'weeks').format('YYY-MM-DD');
+  let twoWeeks = moment().add(2, 'weeks').format('YYYY-MM-DD');
   let sql = `
       SELECT schedules.*, teachers.max_drive FROM schedules
     JOIN teachers 

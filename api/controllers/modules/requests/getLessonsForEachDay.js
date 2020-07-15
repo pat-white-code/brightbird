@@ -47,7 +47,7 @@ const getLessonsForEachDay = (req, res, next) => {
       // console.log('LESSONS', lessons)
       req.body.lessons = lessons
       console.log('LessonData', req.body.lessonData);
-      console.log('Blank Days', req.body.blankDays);
+      // console.log('Blank Days', req.body.blankDays);
       // res.send('Lessons fetched')
       next();
     })
