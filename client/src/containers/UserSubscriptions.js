@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UserSubscriptions from '../components/UserSubscriptions';
-import { getUserSubscriptions } from '../redux/actions';
+import { getUserSubscriptions, getUserLessons } from '../redux/actions';
 
 const mapStateToProps = state => {
   return {
@@ -12,7 +12,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getUserSubscriptions: userId => dispatch(getUserSubscriptions(userId))
+    getUserSubscriptions: userId => dispatch(getUserSubscriptions(userId)),
+    getUserLessons: userId => dispatch(getUserLessons(userId))
   }
 }
 

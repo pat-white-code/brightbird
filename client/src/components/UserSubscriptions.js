@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import SubCard from '../containers/SubCard';
 import { makeStyles } from '@material-ui/core/styles';
-import { userLogin, getUserSubscriptions } from '../redux/actions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,13 +20,17 @@ const UserSubscriptions = (props) => {
   const { 
     subscriptions,
     dbUpdatedAt,
-    userId
+    userId,
+    getUserSubscriptions,
+    getUserLessons
   } = props;
   
   const classes = useStyles();
+
   useEffect(() =>{
-    getUserSubscriptions(userId)
-  }, [dbUpdatedAt])
+    getUserSubscriptions(userId);
+    getUserLessons(userId)
+  }, [dbUpdatedAt]);
 
   return (
     <Grid container className={classes.root} spacing={2}>
