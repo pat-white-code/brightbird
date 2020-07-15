@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UserSubscriptions from '../components/UserSubscriptions';
-import { deleteSub } from '../redux/actions';
+import { getUserSubscriptions } from '../redux/actions';
 
 const mapStateToProps = state => {
   return {
@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    deleteSub: subId => dispatch(deleteSub(subId))
+    getUserSubscriptions: userId => dispatch(getUserSubscriptions(userId))
   }
 }
 
