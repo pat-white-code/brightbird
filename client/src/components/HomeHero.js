@@ -8,8 +8,7 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '75vh',
-    border: '1px red solid'
+    height: '75vh'
   }
 });
 

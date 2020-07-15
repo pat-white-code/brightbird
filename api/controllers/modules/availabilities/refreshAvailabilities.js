@@ -1,4 +1,5 @@
 const axios = require('axios')
+require('dotenv').config();
 
 const refreshAvailabilities = async (req, res, next) => {
 
@@ -16,7 +17,7 @@ const refreshAvailabilities = async (req, res, next) => {
       studentAge: request.student_age,
       instrumentId: request.instrument_id
     }
-      let response = await axios.post('http://localhost:3000/api/requests/refresh', payload);
+      let response = await axios.post(`http://${process.env.IP}/api/requests/refresh`, payload);
       return response.data;
   } catch (err) { console.log(err) }
   }));

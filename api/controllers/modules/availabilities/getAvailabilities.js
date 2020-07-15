@@ -35,7 +35,7 @@ const getAvailabilities = async (req, res) => {
       // console.log(response.data)
       request.availableTeachers = response.data;
       let teachersWithAvailabilities = await Promise.all(response.data.map(async teacher => {
-        let response = await axios.get(`http://localhost:3000/api/availabilities/request/${request.id}/teacher/${teacher.teacher_id}`);
+        let response = await axios.get(`http://${process.env.IP}/api/availabilities/request/${request.id}/teacher/${teacher.teacher_id}`);
         // console.log(request.id)
         teacher.availabilities = response.data
         return teacher;

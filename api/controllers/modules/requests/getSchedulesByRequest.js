@@ -14,7 +14,7 @@ const getSchedulesByRequest = (req, res, next) => {
     console.log('INSTRUMENT ID', instrumentId);
     console.log('experience', experience);
     // schedules/getSchedulesByExperience
-    let response = await axios.get(`http://localhost:3000/api/schedules/request-parameters/?instrumentId=${instrumentId}&zipCode=${zipCode}&studentAge=${studentAge}&exp=${experience}`);
+    let response = await axios.get(`http://${process.env.IP}/api/schedules/request-parameters/?instrumentId=${instrumentId}&zipCode=${zipCode}&studentAge=${studentAge}&exp=${experience}`);
     return response;
   }
 

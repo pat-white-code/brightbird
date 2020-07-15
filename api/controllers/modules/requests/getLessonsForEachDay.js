@@ -1,5 +1,6 @@
 const axios = require('axios');
 const moment = require('moment');
+require('dotenv').config();
 // map each schedule-day
 //  For that schedule-day
 const getLessonsForEachDay = (req, res, next) => {
@@ -13,7 +14,7 @@ const getLessonsForEachDay = (req, res, next) => {
       let date = moment(date_).format('YYYY-MM-DD');
       console.log('teacher_id', teacher_id);
       console.log('date:', date);
-      let lessonsThatDay = await axios.get(`http://localhost:3000/api/lessons/teacher-date/?teacherId=${teacher_id}&date=${date}&requestId=${requestId}`)
+      let lessonsThatDay = await axios.get(`http://${process.env.IP}/api/lessons/teacher-date/?teacherId=${teacher_id}&date=${date}&requestId=${requestId}`)
       console.log('lessonsThatDay DATA', lessonsThatDay.data);
       let data = lessonsThatDay.data
       if(!data[0]) {
