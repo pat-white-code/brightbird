@@ -36,7 +36,8 @@ export const refreshUserAvails = userId => {
     try {
       let response = await axios.get(`/api/availabilities/refresh/user/${userId}`);
       console.log(response.data);
-      dispatch({type: 'DATABASE_UPDATED'})
+      // dispatch({type: 'DATABASE_UPDATED'})
+      dispatch(getRequestsWithAvail(userId));
     } catch(err) {alert(err)}
   }
 }

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import { Container } from '@material-ui/core';
 import TeacherCard from './TeacherCard';
-import { getUserSubscriptions } from '../redux/actions';
+import { getUserSubscriptions, refreshUserAvails } from '../redux/actions';
 // import { getRequestsWithAvail } from '../redux/actions';
 // import moment from 'moment';
 
@@ -13,12 +13,14 @@ const TeacherAvailability  = (props) => {
     user,
     requests,
     getUserLessons,
-    getUserSubscriptions
+    getUserSubscriptions,
+    refreshUserAvails
   } = props
 
   useEffect(() => {
     // getStudentsByUser(user.id)
-    getRequestsWithAvail(user.id)
+    // getRequestsWithAvail(user.id)
+    refreshUserAvails(user.id)
     getUserSubscriptions(user.id)
     getUserLessons(user.id)
     // https://github.com/facebook/create-react-app/issues/6880
