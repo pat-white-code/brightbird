@@ -14,7 +14,8 @@ const getTeacherSubscriptions = (req, res) => {
       ON subscriptions.day_id = days.id
     JOIN addresses
       on subscriptions.address_id = addresses.id
-    WHERE teacher_id = ?;
+    WHERE teacher_id = ?
+    AND subscriptions.active = TRUE;
   `
   let replacements = [req.params.teacherId];
   sql = mysql.format(sql, replacements);

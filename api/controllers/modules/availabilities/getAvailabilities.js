@@ -38,6 +38,9 @@ const getAvailabilities = async (req, res) => {
         let response = await axios.get(`http://${process.env.IP}/api/availabilities/request/${request.id}/teacher/${teacher.teacher_id}`);
         // console.log(request.id)
         teacher.availabilities = response.data
+        let scheduleRes = await axios.get(`http://localhost:3000/api/subscriptions/teacher/${teacher.teacher_id}`)
+        console.log('SCHEDULE RES', scheduleRes);
+        teacher.current_schedule = scheduleRes.data;
         return teacher;
       }))
       request.availableTeachers = teachersWithAvailabilities

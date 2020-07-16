@@ -4,6 +4,7 @@ import { Card, CardContent, CardMedia } from '@material-ui/core';
 // import TeacherAvailsHeader from './TeacherAvailsHeader';
 // import TeacherAvailsBody from './TeacherAvailsBody';
 import TeacherAvailsTable from '../containers/teacherAvailsTable';
+import moment from 'moment';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -50,7 +51,11 @@ const TeacherCard = (props) => {
       <CardContent className={classes.teacherBio}>
         <div className={classes.bioContainer}>
           <h1>{`${props.teacher.first_name} ${props.teacher.last_name}`}</h1>
-          <p>{props.teacher.bio}</p>
+          {/* <p>{props.teacher.bio}</p> */}
+          <h4>Current Schedules</h4>
+          {props.teacher.current_schedule.map(sub=>(
+            <li>{`${sub.day_of_week} at ${moment('2020-01-01'+' ' + sub.time_).format('h:mm a')} | ${sub.street}`}</li>
+          ))}
         </div>
         <div className={classes.availsContainer}>
           <TeacherAvailsTable className={classes.availsTable} avails={props.teacher.availabilities} />
