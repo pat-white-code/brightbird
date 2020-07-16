@@ -52,7 +52,7 @@ const TeacherCard = (props) => {
         <div className={classes.bioContainer}>
           <h1>{`${props.teacher.first_name} ${props.teacher.last_name}`}</h1>
           {/* <p>{props.teacher.bio}</p> */}
-          <h4>Current Schedules</h4>
+          <h4>Current Schedule</h4>
           {props.teacher.current_schedule.map(sub=>(
             <li>{`${sub.day_of_week} at ${moment('2020-01-01'+' ' + sub.time_).format('h:mm a')} | ${sub.street}`}</li>
           ))}
