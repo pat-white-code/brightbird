@@ -31,7 +31,7 @@ export default function AvailabilitiesTable(props) {
         <TableBody className={classes.tbody}>
           {props.avails.map((avail) => (
             <TableRow key={avail.teacher_availability_id}>
-              <TableCell align="center">{`${moment(avail.start_time_stamp, 'YYYY-MM-DDTHH:mm:ss Z').format('dddd')}s at ${moment(avail.start_time_stamp, 'YYYY-MM-DDTHH:mm:ss Z').format('h:mm a')}`}</TableCell>
+              <TableCell align="center">{`${moment(avail.start_time_stamp, 'YYYY-MM-DDTHH:mm:ss').format('dddd')}s at ${moment(avail.start_time_stamp, 'YYYY-MM-DDTHH:mm:ss').format('h:mm a')}`}</TableCell>
               <TableCell align="center">{moment(avail.start_time_stamp).format('MM/DD')}</TableCell>
               <TableCell align="center"><button onClick={()=>{createSubscription(avail)}}>Book Lesson</button></TableCell>
             </TableRow>

@@ -130,10 +130,10 @@ export default function UserLessonsTable(props) {
           ).map((lesson) => (
             <TableRow key={lessons.id}>
               <TableCell component="th" scope="row">
-                {moment(lesson.day_time).format('dddd MMMM DD')}
+                {moment(lesson.day_time, 'YYYY-MM-DDTHH:mm:ss').format('dddd MMMM DD')}
               </TableCell>
               <TableCell style={{ width: 160 }} align="center">
-                {moment(lesson.day_time).format('hh:mm a')}
+                {moment(lesson.day_time, 'YYYY-MM-DDTHH:mm:ss').format('h:mm a')}
               </TableCell>
               <TableCell style={{ width: 160 }} align="center">
                 {`${lesson.student_first_name} ${lesson.student_last_name}`}
