@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import { Container } from '@material-ui/core';
 import TeacherCard from './TeacherCard';
+import LoadingModal from './LoadingModal';
 import { getUserSubscriptions, refreshUserAvails } from '../redux/actions';
 // import { getRequestsWithAvail } from '../redux/actions';
 // import moment from 'moment';
@@ -8,13 +9,13 @@ import { getUserSubscriptions, refreshUserAvails } from '../redux/actions';
 
 const TeacherAvailability  = (props) => {
   const {
-    getRequestsWithAvail,
     dbUpdatedAt,
     user,
     requests,
     getUserLessons,
     getUserSubscriptions,
-    refreshUserAvails
+    refreshUserAvails,
+    isLoading
   } = props
 
   useEffect(() => {
@@ -31,7 +32,10 @@ const TeacherAvailability  = (props) => {
   return(
     <Container maxWidth="md">
       {requests.map(request => (
-        <>  
+        <>
+          {isLoading && (
+            <LoadingModal />
+          )}
           <h1>
             {`Teachers Available for ${request.first_name}`}
           </h1>
