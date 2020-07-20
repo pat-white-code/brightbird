@@ -26,6 +26,11 @@ const useStyles = makeStyles((theme) => ({
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: 200,
+    height: 200
   },
 }));
 
@@ -40,6 +45,7 @@ export default function SimpleModal() {
       <p id="simple-modal-description">
         Please wait for Data to load
       </p> */}
+      <h1>Loading...</h1>
       <LoadingCircle />
     </div>
   );
