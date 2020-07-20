@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-import { getTeacherInstruments } from '../redux/actions';
+import LoadingCircle from './LoadingCircle';
 
 function rand() {
   // return Math.round(Math.random() * 20) - 10;
@@ -22,7 +22,6 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
-    width: 400,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
@@ -37,10 +36,11 @@ export default function SimpleModal() {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Data Is Loading</h2>
+      {/* <h2 id="simple-modal-title">Data Is Loading</h2>
       <p id="simple-modal-description">
         Please wait for Data to load
-      </p>
+      </p> */}
+      <LoadingCircle />
     </div>
   );
 
