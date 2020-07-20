@@ -5,6 +5,10 @@ export const loadingData = () => {
   return {type: 'LOADING_DATA'}
 }
 
+export const dataSuccess = () => {
+  return {type: 'DATA_SUCCESS'}
+}
+
 export const initialLogin = (userId) => {
   return {type: 'INITIAL_LOGIN', payload: userId}
 }
@@ -40,6 +44,7 @@ export const refreshUserAvails = userId => {
     try {
       dispatch(loadingData());
       let response = await axios.get(`/api/availabilities/refresh/user/${userId}`);
+      dispatch(dataSuccess());
       console.log(response.data);
       // dispatch({type: 'DATABASE_UPDATED'})
       dispatch(getRequestsWithAvail(userId));

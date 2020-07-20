@@ -71,6 +71,9 @@ const isLoading = (state = false, action) => {
     case 'LOADING_DATA':
       newState = true
       return newState;
+    case 'DATA_SUCCESS':
+      newState = false
+      return newState;
     default:
       return state;
   }
