@@ -9,6 +9,7 @@ const state = {
     lessons: [],
     subscriptions: []
   },
+  isLoading: false,
   requests: [],
   // requestIsLoaded: false,
   availabilities: [],

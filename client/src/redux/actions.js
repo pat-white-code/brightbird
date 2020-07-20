@@ -1,6 +1,10 @@
 import axios from 'axios';
 import moment from 'moment';
 
+export const loadingData = () => {
+  return {type: 'LOADING_DATA'}
+}
+
 export const initialLogin = (userId) => {
   return {type: 'INITIAL_LOGIN', payload: userId}
 }
@@ -34,6 +38,7 @@ export const userLogin = (user) => {
 export const refreshUserAvails = userId => {
   return async dispatch => {
     try {
+      dispatch(loadingData());
       let response = await axios.get(`/api/availabilities/refresh/user/${userId}`);
       console.log(response.data);
       // dispatch({type: 'DATABASE_UPDATED'})

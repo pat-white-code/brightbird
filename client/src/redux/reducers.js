@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import state from './state';
 // import state from './state';
 
 const user = (state = {}, action) => {
@@ -64,7 +65,19 @@ const teacher = (state = {}, action) => {
   }
 }
 
+const isLoading = (state = false, action) => {
+  let newState = {...state}
+  switch(action.type) {
+    case 'LOADING_DATA':
+      newState = true
+      return newState;
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
+  isLoading,
   user, 
   requests, 
   // teacherSchedules, 
