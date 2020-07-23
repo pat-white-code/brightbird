@@ -21,7 +21,7 @@ const postSubscriptionLessons = (req, res, next) => {
   let replacements = [weeklyLesson.format('YYYY-MM-DD HH:mm:ss'), lesson_duration, student_id, teacher_id, instrument_id, subscriptionId, price, 0, date, address_id, 1];
 
   let i = 0;
-  while (i < 5) {
+  while (i < 24) {
     weeklyLesson.add(1, 'week');
     date = weeklyLesson.format('YYYY-MM-DD');
     sql = sql.concat(', (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
