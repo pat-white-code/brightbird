@@ -28,7 +28,8 @@ const getLessonsByUser = (req, res) => {
   JOIN instruments
     ON inst_id = instruments.id
   WHERE client_id = ?
-  AND lessons.date_ >= ?;
+  AND lessons.date_ >= ?
+  ORDER BY day_time;
   `
 
   const replacements = [userId, date];
