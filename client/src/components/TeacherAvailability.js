@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { Container } from '@material-ui/core';
+import { Container, Button } from '@material-ui/core';
 import TeacherCard from './TeacherCard';
 import LoadingModal from './LoadingModal';
 import { getUserSubscriptions, refreshUserAvails } from '../redux/actions';
@@ -45,10 +45,9 @@ const TeacherAvailability  = (props) => {
           ))}
         </>
       ))}
+      <Button onClick={() => {refreshUserAvails(user.id)}}>Refresh Availabilities</Button>
     </Container>
   )
 }
-
-
 
 export default TeacherAvailability;
