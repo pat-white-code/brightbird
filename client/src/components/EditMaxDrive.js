@@ -5,11 +5,18 @@ import axios from 'axios';
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    minWidth: 160,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  container: {
+    width: '40%'
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column'
+  }
 }));
 
 const EditMaxDrive = (props) => {
@@ -31,14 +38,14 @@ const EditMaxDrive = (props) => {
   }
 
   return (
-    <div>
-      <Typography>
+    <div className={classes.container}>
+      <Typography variant='h5' gutterbototm>
         Maximum Drive Time
       </Typography>
-      <Typography>
+      <Typography >
         This setting adjusts your maximum drive time between students for new appointments. This will not affect current student scheduling
       </Typography>
-      <form onSubmit={handleSubmit}>
+      <form className={classes.form} onSubmit={handleSubmit}>
         <FormControl className={classes.formControl}>
           <InputLabel id="max-drive-time">Maximum Drive Time</InputLabel>
           <Select
@@ -55,7 +62,7 @@ const EditMaxDrive = (props) => {
             <MenuItem value={35}>35 Minutes</MenuItem>
           </Select>
         </FormControl>
-        <Button type='submit'>Save</Button>
+        <Button variant='outlined' color='primary' type='submit'>Save</Button>
       </form>
     </div>
   )

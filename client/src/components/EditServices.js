@@ -12,10 +12,12 @@ const EditServices = (props) => {
     <Container>
       <div className={styles['card']}>
         <h1 className={styles['header']}>Edit Service Parameters</h1>
-        <AddZipCode />
-        {teacher.info.max_drive && (
-          <EditMaxDrive />
-        )}
+        <div class={styles['services-container']}>
+          <AddZipCode />
+          {teacher.info.max_drive && (
+            <EditMaxDrive />
+          )}
+        </div>
       </div>
     </Container>
   )
