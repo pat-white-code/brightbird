@@ -8,7 +8,6 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     alignItems: 'center',
     height: '75vh',
-    border: '1px red solid',
     padding: 50
   },
   container: {
