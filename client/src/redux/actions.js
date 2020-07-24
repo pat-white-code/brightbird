@@ -334,3 +334,7 @@ export const getUserLessons = (userId) => {
     catch (err) { alert(err) }
   }
 }
+
+export const userLogsOut = () => {
+  return {type:'USER_LOGS_OUT'}
+}

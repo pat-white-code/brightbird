@@ -6,6 +6,16 @@ const user = (state = {}, action) => {
   switch(action.type) {
     case 'USER_LOGS_IN':
       return {...state, isLoggedIn: true};
+    case 'USER_LOGS_OUT':
+        return {...state,
+          isLoggedIn: false,
+          id: null,
+          addressId: null,
+          students: [],
+          addresses: [],
+          lessons: [],
+          subscriptions: []
+        };
     case 'INITIAL_LOGIN':
       return{...state, isLoggedIn: true, id:action.payload};
     case 'SETS_USER_ID':

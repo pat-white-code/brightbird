@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar(props) {
   const classes = useStyles();
-  const {user, teacher} = props;
+  const { user, teacher, userLogsOut } = props;
 
   return (
     <div className={classes.root}>
@@ -45,13 +45,15 @@ export default function ButtonAppBar(props) {
               <Link to="/availability"><Button color="inherit" className={classes.menuButton}>Availability</Button></Link>
               <Link to="/requests"><Button color="inherit" className={classes.menuButton}>View Requests</Button></Link>
               <Link to="/user/schedule"><Button color="inherit" className={classes.menuButton}>Schedule</Button></Link>
-              <Link to="/"><Button color="secondary" variant='contained'>Log Out</Button></Link>
+              <Link to='/'><Button color="secondary" variant='contained' onClick={userLogsOut}>Log Out</Button></Link>
             </>
           )}
           {teacher.isLoggedIn && (
             <>
               <Link to="/teacher/instruments"><Button color="inherit">Instruments</Button></Link>
-              <Link to="/"><Button color="secondary" variant='contained'>Log Out</Button></Link>
+              {/* <Link to="/"> */}
+              <Button color="secondary" variant='contained' onClick={userLogsOut}>Log Out</Button>
+              {/* </Link> */}
             </>
           )}
           {!user.isLoggedIn && !teacher.isLoggedIn && (
