@@ -6,6 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import { Button } from '@material-ui/core';
 
 import moment from 'moment';
 
@@ -33,7 +34,7 @@ export default function AvailabilitiesTable(props) {
             <TableRow key={avail.teacher_availability_id}>
               <TableCell align="center">{`${moment(avail.start_time_stamp, 'YYYY-MM-DDTHH:mm:ss').format('dddd')}s at ${moment(avail.start_time_stamp, 'YYYY-MM-DDTHH:mm:ss').format('h:mm a')}`}</TableCell>
               <TableCell align="center">{moment(avail.start_time_stamp).format('MM/DD')}</TableCell>
-              <TableCell align="center"><button onClick={()=>{createSubscription(avail)}}>Book Lesson</button></TableCell>
+              <TableCell align="center"><Button variant='outlined' color='primary' onClick={()=>{createSubscription(avail)}}>Book Lesson</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>
