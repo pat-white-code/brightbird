@@ -35,7 +35,7 @@ const ViewInstruments = (props) => {
       <Grid container spacing={3}>
         {/* For each instrument map a card, then have a plus sign for new instrument */}
         {teacher.instruments.map((instrument, index) => (
-          <Grid key={index} item sm>
+          <Grid key={index} item sm={6} xs={12} md={3}>
             <InstrumentCard instrument={instrument} />
             {/* <InstrumentCard request={instrument} /> */}
           </Grid>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Card } from '@material-ui/core';
 import AddZipCode from '../containers/AddZipCode';
 import EditMaxDrive from '../containers/EditMaxDrive';
+import styles from '../styles/EditServices.module.css';
 
 
 const EditServices = (props) => {
@@ -9,13 +10,13 @@ const EditServices = (props) => {
 
   return(
     <Container>
-      <Card>
-        <h1>Edit Service Parameters</h1>
+      <div className={styles['card']}>
+        <h1 className={styles['header']}>Edit Service Parameters</h1>
         <AddZipCode />
         {teacher.info.max_drive && (
           <EditMaxDrive />
         )}
-      </Card>
+      </div>
     </Container>
   )
 }

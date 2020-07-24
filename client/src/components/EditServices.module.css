@@ -1,0 +1,9 @@
+.card {
+  padding: 20px;
+  border: 1px red solid;
+}
+
+.header {
+  color: red;
+  font-size: 100px;
+}
