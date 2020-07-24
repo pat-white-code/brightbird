@@ -63,6 +63,14 @@ const teacher = (state = {}, action) => {
   switch(action.type) {
     case 'TEACHER_LOGS_IN':
       return {...state, isLoggedIn: true, id: action.payload}
+    case 'TEACHER_LOGS_OUT':
+      return {...state, 
+        isLoggedIn: false,
+        id: null,
+        zipCodes: [],
+        info: null,
+        week: []
+      }
     case 'GETS_TEACHER_INSTRUMENTS':
       return {...state, instruments:action.payload}
     case 'GETS_TEACHER_ZIPCODES':

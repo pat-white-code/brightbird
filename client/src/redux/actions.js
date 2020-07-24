@@ -338,3 +338,7 @@ export const getUserLessons = (userId) => {
 export const userLogsOut = () => {
   return {type:'USER_LOGS_OUT'}
 }
+
+export const teacherLogsOut =() => {
+  return {type:'TEACHER_LOGS_OUT'}
+}

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Nav from '../components/Nav';
-import { userLogsOut } from '../redux/actions';
+import { userLogsOut, teacherLogsOut } from '../redux/actions';
 
 const mapStateToProps = state => {
   return {
@@ -11,7 +11,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    userLogsOut: ()=> dispatch(userLogsOut())
+    userLogsOut: ()=> dispatch(userLogsOut()),
+    teacherLogsOut: ()=> dispatch(teacherLogsOut())
   }
 }
 

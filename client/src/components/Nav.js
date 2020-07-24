@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar(props) {
   const classes = useStyles();
-  const { user, teacher, userLogsOut } = props;
+  const { user, teacher, userLogsOut, teacherLogsOut } = props;
 
   return (
     <div className={classes.root}>
@@ -52,7 +52,7 @@ export default function ButtonAppBar(props) {
             <>
               <Link to="/teacher/instruments"><Button color="inherit">Instruments</Button></Link>
               <Link to="/">
-              <Button color="secondary" variant='contained' onClick={userLogsOut}>Log Out</Button>
+              <Button color="secondary" variant='contained' onClick={teacherLogsOut}>Log Out</Button>
               </Link>
             </>
           )}
