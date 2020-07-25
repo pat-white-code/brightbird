@@ -19,6 +19,7 @@ router.post('/week', controller.createTeacherWeek, schedules.postSchedules);
 
 router.delete('/zip-code/:zipCodeId', controller.deleteZipCode);
 router.delete('/week/:weekId', controller.deleteTeacherWeek, schedules.deleteSchedules);
+router.delete('/instrument/delete/:teacherInstrumentId', controller.deleteTeacherInstrument);
 
 router.put('/max-drive', controller.editMaxDrive, schedules.postSchedules);
 

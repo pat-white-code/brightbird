@@ -13,6 +13,7 @@ const getTeacherInfo = require('./modules/teachers/getTeacherInfo');
 const getTeacherWeek = require('./modules/teachers/getTeacherWeek');
 const createTeacherWeek = require('./modules/teachers/createTeacherWeek');
 const deleteTeacherWeek = require('./modules/teachers/deleteTeacherWeek');
+const deleteTeacherInstrument = require('./modules/teachers/deleteTeacherInstrument');
 
 module.exports = {
   getTeachers,
@@ -29,5 +30,6 @@ module.exports = {
   getTeacherInfo,
   getTeacherWeek,
   createTeacherWeek,
-  deleteTeacherWeek
+  deleteTeacherWeek,
+  deleteTeacherInstrument
 };
