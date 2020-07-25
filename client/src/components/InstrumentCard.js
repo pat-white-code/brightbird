@@ -21,7 +21,7 @@ const useStyles = makeStyles({
 
 export default function InstrumentCard(props) {
   const classes = useStyles();
-  const {instrument} = props;
+  const {instrument, deleteTeacherInstrument} = props;
 
   const getInstrumentImage = (instrumentId) => {
     switch(instrumentId) {
@@ -53,12 +53,12 @@ export default function InstrumentCard(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      {/* <CardActions>
-        <EditRequestModal request={props.request} />
-        <IconButton onClick={()=>{props.deleteRequest(props.request.id)}}>
+      <CardActions>
+        {/* <EditRequestModal request={props.request} /> */}
+        <IconButton onClick={()=>{deleteTeacherInstrument(instrument.id)}}>
           <DeleteIcon />
         </IconButton>
-      </CardActions> */}
+      </CardActions>
     </Card>
   );
 }

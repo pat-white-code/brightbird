@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Container, Grid } from '@material-ui/core';
-import InstrumentCard from './InstrumentCard';
+import InstrumentCard from '../containers/InstrumentCard';
 // import { makeStyles } from '@material-ui/core/styles';
 // import RequestCard from '../containers/RequestCard';
 // import FormModal from './FormModal';

@@ -342,3 +342,13 @@ export const userLogsOut = () => {
 export const teacherLogsOut =() => {
   return {type:'TEACHER_LOGS_OUT'}
 }
+
+export const deleteTeacherInstrument = (teacherInstrumentId) => {
+  return async dispatch => {
+    try {
+      let response = await axios.delete(`/api/teachers/instrument/delete/${teacherInstrumentId}`)
+      console.log(response);
+      dispatch({type:'DATABASE_UPDATED'})
+    } catch(err) {alert(err)}
+  }
+}
