@@ -51,6 +51,7 @@ const AddZipCode = (props) => {
     e.preventDefault();
     let request = {zipCode, teacherId: teacher.id}
     addTeacherZipCode(request);
+    setZipCode('');
   }
 
   return(
