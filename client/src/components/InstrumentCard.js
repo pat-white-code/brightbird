@@ -45,11 +45,14 @@ export default function InstrumentCard(props) {
           title={instrument.instrument_name}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {`Minimun Age: ${instrument.min_age}`}
+          <Typography gutterBottom variant="h6">
+            {`${instrument.instrument_name}`}
           </Typography>
-          <Typography gutterBottom variant="h5" component="h2">
-            {`Maximum Experience: ${instrument.max_exp}`}
+          <Typography gutterBottom>
+            {`Ages ${instrument.min_age} and Up`}
+          </Typography>
+          <Typography gutterBottom >
+            {`${instrument.max_exp} Years of Experience and Beyond`}
           </Typography>
         </CardContent>
       </CardActionArea>
