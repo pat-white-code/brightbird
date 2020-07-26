@@ -4,7 +4,7 @@ const pool = require('../../../mysql/connection');
 const getSubsByTeacher = (req, res) => {
 
   let sql = `
-    SELECT subscriptions.id, day_id, day_of_week, time_, students.first_name, students.last_name, subscriptions.lesson_duration, instruments.instrument_name, addresses.street 
+    SELECT subscriptions.id, day_id, day_of_week, time_, students.first_name, students.last_name, subscriptions.lesson_duration, instruments.instrument_name, addresses.address 
     FROM subscriptions
     JOIN students
       ON subscriptions.student_id = students.id
@@ -15,7 +15,8 @@ const getSubsByTeacher = (req, res) => {
     JOIN addresses
       on subscriptions.address_id = addresses.id
     WHERE teacher_id = ?
-    AND subscriptions.active = TRUE;
+    AND subscriptions.active = TRUE
+    ORDER BY day_id, time_;
   `
   let replacements = [req.params.teacherId];
   sql = mysql.format(sql, replacements);
