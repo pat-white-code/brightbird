@@ -6,7 +6,7 @@ const lessons = require('../controllers/lessons');
 router.get('/client/:clientId', controller.getClientSubscriptions);
 router.get('/requests/client/:clientId', controller.getClientRequests);
 router.get('/:subscriptionId', controller.getSubscriptionInfo);
-router.get('/teacher/:teacherId', controller.getTeacherSubscriptions);
+router.get('/teacher/:teacherId', controller.getSubsByTeacher);
 
 router.post('/', controller.postSubscription, controller.postSubscriptionLessons, controller.mailNewSubscription);
 

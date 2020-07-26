@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const pool = require('../../../mysql/connection');
 
-const getTeacherSubscriptions = (req, res) => {
+const getSubsByTeacher = (req, res) => {
 
   let sql = `
     SELECT subscriptions.id, day_id, day_of_week, time_, students.first_name, students.last_name, subscriptions.lesson_duration, instruments.instrument_name, addresses.street 
@@ -25,4 +25,4 @@ const getTeacherSubscriptions = (req, res) => {
   })
 }
 
-module.exports = getTeacherSubscriptions;
+module.exports = getSubsByTeacher;
