@@ -62,6 +62,17 @@ export const getUserSubscriptions = userId => {
   }
 }
 
+export const getSubsByTeacher = teacherId => {
+  return async dispatch => {
+    try {
+      let response = await axios.get(`/api/subscriptions/teacher/${teacherId}`);
+      console.log('GET SUBS BY TEACHER', response);
+      let subs = response.data;
+      dispatch({type:'GETS_TEACHER_SUBS', payload: subs})
+    } catch (err) {alert(err)}
+  }
+}
+
 export const deleteSub = subId => {
   return async dispatch => {
     try {

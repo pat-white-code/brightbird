@@ -3,6 +3,7 @@ import ViewInstruments from '../containers/ViewInstruments';
 import { Container } from '@material-ui/core';
 import EditServices from './EditServices';
 import TeacherWeek from '../containers/TeacherWeek';
+import TeacherSchedule from '../containers/TeacherSchedule';
 
 const TeacherHome = (props) => {
   const {teacher} = props;
@@ -12,6 +13,7 @@ const TeacherHome = (props) => {
       <ViewInstruments />
       <EditServices teacher={teacher}/>
       <TeacherWeek />
+      <TeacherSchedule />
     </Container>
   )
 }

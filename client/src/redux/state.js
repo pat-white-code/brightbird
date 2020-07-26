@@ -20,7 +20,8 @@ const state = {
     instruments: [],
     zipCodes: [],
     info: {},
-    week: []
+    week: [],
+    subs: []
   }
 }
 
