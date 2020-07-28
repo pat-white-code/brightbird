@@ -23,6 +23,8 @@ router.delete('/deactivate/:subId',
   lessons.deleteLessonsBySub
 )
 
+router.put('/edit/:subId', controller.putSubscription);
+
 router.put('/:subscriptionId', controller.putSubscription);
 // UPDATE LESSON
 // IF updateSubscription === TRUE, 
