@@ -1,20 +1,3 @@
-// This route will take a client ID and returned a tiered object response
-// let response = {
-//   requestId: 1,
-//   availableTeachers: [
-//     {
-//       name: 'Anne-Marie',
-//       availabilities: [
-//         {
-//           date: '2020'
-//         }
-//       ]
-//   },
-//     {
-//       name: 'Jim'
-//     }
-//   ]
-// }
 require('dotenv').config();
 const axios = require('axios');
 

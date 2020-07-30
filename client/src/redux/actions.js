@@ -73,6 +73,15 @@ export const getSubsByTeacher = teacherId => {
   }
 }
 
+export const editSubByTeacher = updatedSub => {
+  return async dispatch => {
+    try {
+      let response = await axios.put(`/api/subscriptions/edit/${updatedSub.subId}/edit=true`)
+      console.log(response)
+    } catch(err) {alert(err)}
+  }
+}
+
 export const deleteSub = subId => {
   return async dispatch => {
     try {
