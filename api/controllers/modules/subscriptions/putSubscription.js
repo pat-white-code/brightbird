@@ -35,10 +35,9 @@ const putSubscription = (req, res, next) => {
   sql = mysql.format(sql, replacements);
   pool.query(sql, (err, rows)=> {
     if(err) {return res.status(500).send(err)}
-    return res.status(200).send(`subscription ${req.params.subscriptionId} updated`)
-    console.log(`subscription ${req.params.subscriptionId} updated`)
-    req.body.dayId = dayId;
-    next()
+    // return res.status(200).send(`subscription ${req.params.subscriptionId} updated`)
+    // console.log(`subscription ${req.params.subscriptionId} updated`)
+    next();
   })
 }
 
