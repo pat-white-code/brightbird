@@ -3,9 +3,25 @@ const pool = require('../../../mysql/connection');
 const moment = require('moment');
 
 const putSubscription = (req, res, next) => {
-
   const { dayId, time, lessonDuration } = req.body;
   const { subId } = req.params;
+
+  // To find date_time_stamp, find the next day that matches the day id
+  let date = moment();
+  let days = 0;
+  
+  while (days < 7) {
+    console.log('DATE FORMAT E', date.format('E'));
+    console.log('DAY ID', dayId);
+    // dayId is integer in form, not string
+    if(date.format('E') == dayId){
+      console.log('MATCH!')
+      req.body.start_time_stamp = moment(`${date.format('YYYY-MM-DD')} ${time}`, 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm');
+      console.log('START_TIME_STAMP', req.body.start_time_stamp);
+    }
+    date.add(1, 'days');
+    days++;
+  }
 
   let price;
   switch(lessonDuration) {
