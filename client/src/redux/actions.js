@@ -78,6 +78,7 @@ export const editSubByTeacher = updatedSub => {
     try {
       let response = await axios.put(`/api/subscriptions/edit/${updatedSub.subscriptionId}/?edit=true`, updatedSub)
       console.log(response)
+      dispatch({type: 'SUBS_UPDATED'})
     } catch(err) {alert(err)}
   }
 }

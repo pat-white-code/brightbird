@@ -21,7 +21,8 @@ const state = {
     zipCodes: [],
     info: {},
     week: [],
-    subs: []
+    subs: [],
+    subsUpdatedAt: null
   }
 }
 

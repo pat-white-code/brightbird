@@ -81,6 +81,8 @@ const teacher = (state = {}, action) => {
       return {...state, week: action.payload};
     case 'GETS_TEACHER_SUBS':
       return {...state, subs: action.payload}
+    case 'SUBS_UPDATED':
+      return {...state, subsUpdatedAt: new Date()}
     default: return state
   }
 }
