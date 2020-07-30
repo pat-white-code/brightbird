@@ -25,7 +25,9 @@ router.delete('/deactivate/:subId',
 
 router.put('/edit/:subId', 
   controller.putSubscription,
-  lessons.deleteLessonsBySub,);
+  lessons.deleteLessonsBySub,
+  controller.postSubscriptionLessons
+  );
 
 router.put('/:subscriptionId', 
   // req.query.edit = true

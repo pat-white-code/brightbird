@@ -3,7 +3,7 @@ const pool = require('../../../mysql/connection');
 const moment = require('moment');
 
 const putSubscription = (req, res, next) => {
-  const { dayId, time, lessonDuration } = req.body;
+  const { dayId, time, lesson_duration } = req.body;
   const { subId } = req.params;
 
   // To find date_time_stamp, find the next day that matches the day id
@@ -24,7 +24,7 @@ const putSubscription = (req, res, next) => {
   }
 
   let price;
-  switch(lessonDuration) {
+  switch(lesson_duration) {
     case '30':
       price = 40;
       break;
@@ -45,7 +45,7 @@ const putSubscription = (req, res, next) => {
       lesson_duration = ?
     WHERE id = ?;
   `
-  let replacements = [dayId, time, price, lessonDuration, subId]
+  let replacements = [dayId, time, price, lesson_duration, subId]
 
 
   sql = mysql.format(sql, replacements);
