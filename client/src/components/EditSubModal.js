@@ -5,7 +5,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
-import EditSub from './EditSub';
+import EditSub from '../containers/EditSub';
 
 const useStyles = makeStyles((theme) => ({
   modal: {

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button, Typography, Container, FormControl, FormHelperText, InputLabel, Select, MenuItem, makeStyles } from '@material-ui/core';
-import moment from 'moment';
 import TimePicker from './TimePicker';
 
 
@@ -28,11 +27,10 @@ const useStyles = makeStyles((theme) => ({
 const EditSub = (props) => {
   const { 
     sub,
-    handleClose
+    handleClose,
+    editSubByTeacher
   } = props;
-  // const { dayId, time, lesson_duration, address_id, student_id, teacher_id, instrument_id, id } = sub;
-  // instrument
-  // lesson duration  
+
   const classes = useStyles();
   const [dayId, setDayId] = useState(sub.day_id);
   const [time, setTime] = useState(sub.time_);
@@ -69,11 +67,12 @@ const EditSub = (props) => {
       teacher_id: sub.teacher_id, 
       dayId, 
       time,
-      lesson_druation: lessonDuration,
+      lesson_duration: lessonDuration,
       instrument_id: instrumentId,
       subscriptionId: sub.id
     }
     console.log('UPDATED SUB', updatedSub);
+    editSubByTeacher(updatedSub);
     handleClose()
   }
 

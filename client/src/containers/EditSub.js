@@ -1,10 +1,10 @@
-import { EditSubByTeacher } from '../redux/actions';
+import { editSubByTeacher } from '../redux/actions';
 import { connect } from 'react-redux';
 import EditSub from '../components/EditSub';
 
 const mapDispatchToProps = dispatch => {
   return {
-    EditSubByTeacher: (updatedSub) => dispatch(EditSubByTeacher(updatedSub))
+    editSubByTeacher: (updatedSub) => dispatch(editSubByTeacher(updatedSub))
   }
 }
 

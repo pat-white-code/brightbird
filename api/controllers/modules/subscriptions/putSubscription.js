@@ -3,6 +3,7 @@ const pool = require('../../../mysql/connection');
 const moment = require('moment');
 
 const putSubscription = (req, res, next) => {
+  console.log('REQ BODDDY, ', req.body);
   const { dayId, time, lesson_duration } = req.body;
   const { subId } = req.params;
 
