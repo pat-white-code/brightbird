@@ -5,7 +5,8 @@ import TeacherSchedule from '../components/TeacherSchedule';
 const mapStateToProps = state => {
   return {
     subs: state.teacher.subs,
-    teacher: state.teacher
+    teacher: state.teacher,
+    subsUpdatedAt: state.teacher.subsUpdatedAt
   }
 }
 

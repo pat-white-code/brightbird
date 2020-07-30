@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import TeacherSubsTable from './TeacherSubsTable';
 
 const TeacherSchedule = props => {
-  const { getSubsByTeacher, subs, teacher } = props;
+  const { getSubsByTeacher, subs, teacher, subsUpdatedAt } = props;
 
   useEffect(()=>{
     getSubsByTeacher(teacher.id)
-  }, [teacher.id])
+  }, [teacher.id, subsUpdatedAt])
 
   return (
     <div>
