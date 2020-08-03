@@ -367,6 +367,16 @@ export const getLessonsByTeacher = (teacherId) => {
   }
 } 
 
+export const deleteLesson = (lessonId) => {
+  return async dispatch => {
+    try {
+      let response = await axios.delete(`/api/lessons/delete/${lessonId}`);
+      console.log(response);
+      dispatch({type:'LESSONS_DB_UPDATED'})
+    } catch(err) { alert(err)}
+  }
+}
+
 export const userLogsOut = () => {
   return {type:'USER_LOGS_OUT'}
 }
