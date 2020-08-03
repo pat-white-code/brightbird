@@ -23,7 +23,8 @@ const state = {
     week: [],
     subs: [],
     subsUpdatedAt: null,
-    lessons: []
+    lessons: [],
+    lessonsUpdatedAt: null
   }
 }
 
