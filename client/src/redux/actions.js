@@ -356,6 +356,17 @@ export const getUserLessons = (userId) => {
   }
 }
 
+export const getLessonsByTeacher = (teacherId) => {
+  return async dispatch => {
+    try {
+      let response = await axios.get(`/api/lessons/teacher/${teacherId}`);
+      console.log(response);
+      let lessons = response.data;
+      dispatch({type: 'GETS_TEACHER_LESSONS', payload: lessons});
+    } catch (err) { alert(err) }
+  }
+} 
+
 export const userLogsOut = () => {
   return {type:'USER_LOGS_OUT'}
 }
