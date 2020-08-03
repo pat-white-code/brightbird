@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import TeacherSubsTable from './TeacherSubsTable';
+import { Container } from '@material-ui/core';
 
 const TeacherSchedule = props => {
   const { getSubsByTeacher, subs, teacher, subsUpdatedAt } = props;
@@ -10,8 +11,10 @@ const TeacherSchedule = props => {
 
   return (
     <div>
-      <h1>Current Schedule</h1>
-      <TeacherSubsTable subs={subs} />
+      <Container>
+        <h1>Current Schedule</h1>
+        <TeacherSubsTable subs={subs} />
+      </Container>
     </div>
   )
 }
