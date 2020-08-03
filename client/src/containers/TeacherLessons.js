@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 const mapStateToProps = state => {
   return {
     lessons: state.teacher.lessons,
-    subsUpdatedAt: state.teacher.subsUpdatedAt
+    subsUpdatedAt: state.teacher.subsUpdatedAt,
+    teacherId: state.teacher.id
   }
 }
 

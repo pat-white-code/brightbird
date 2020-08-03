@@ -4,6 +4,7 @@ import { Container } from '@material-ui/core';
 import EditServices from './EditServices';
 import TeacherWeek from '../containers/TeacherWeek';
 import TeacherSchedule from '../containers/TeacherSchedule';
+import TeacherLessons from '../containers/TeacherLessons';
 
 const TeacherHome = (props) => {
   const {teacher} = props;
@@ -14,6 +15,7 @@ const TeacherHome = (props) => {
       <EditServices teacher={teacher}/>
       <TeacherWeek />
       <TeacherSchedule />
+      <TeacherLessons />
     </Container>
   )
 }

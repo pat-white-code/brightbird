@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Container } from '@material-ui/core';
+import TeacherLessonsTable from './TeacherLessonsTable';
 
+const TeacherLessons = (props) => {
+  const {
+    lessons, 
+    getLessonsByTeacher, 
+    subsUpdatedAt,
+    teacherId
+  } = props;
 
-const TeacherLessons = () => {
   useEffect(()=>{
-    // get lessons by teacher
-  }, [])
+    getLessonsByTeacher(teacherId)
+  }, [teacherId, subsUpdatedAt])
   return (
     <div>
       <Container>
@@ -16,3 +24,5 @@ const TeacherLessons = () => {
     </div>
   )
 }
+
+export default TeacherLessons;
