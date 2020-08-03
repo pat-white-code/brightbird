@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container, Grid } from '@material-ui/core';
+import { Container, Grid, Typography } from '@material-ui/core';
 import InstrumentCard from '../containers/InstrumentCard';
 // import { makeStyles } from '@material-ui/core/styles';
 // import RequestCard from '../containers/RequestCard';
@@ -31,11 +31,11 @@ const ViewInstruments = (props) => {
 
   return(
     <Container>
-      <h1>Instruments You Teach</h1>
+      <Typography variant={'h4'}>Instruments You Teach</Typography>
       <Grid container spacing={3}>
         {/* For each instrument map a card, then have a plus sign for new instrument */}
         {teacher.instruments.map((instrument, index) => (
-          <Grid key={index} item sm={6} xs={12} md={3}>
+          <Grid key={index} item sm={6} xs={12} md={4}>
             <InstrumentCard instrument={instrument} />
             {/* <InstrumentCard request={instrument} /> */}
           </Grid>

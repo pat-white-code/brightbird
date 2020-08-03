@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 import TeacherLessonsTable from './TeacherLessonsTable';
 
 const TeacherLessons = (props) => {
@@ -17,9 +17,9 @@ const TeacherLessons = (props) => {
   return (
     <div>
       <Container>
-        <h1>
-          Upcoming lessons
-        </h1>
+        <Typography variant={'h4'} gutterBottom>
+          Upcoming Lessons
+        </Typography>
         <TeacherLessonsTable lessons={lessons} />
       </Container>
     </div>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container, IconButton } from '@material-ui/core';
+import { Container, IconButton, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -47,44 +47,44 @@ const TeacherWeek = (props) => {
   const classes = useStyles()
   return (
     <Container>
-    <h3>Weekly Work Schedule</h3>
-    <p>These are the regular hours you are available to teach. Chaning these hours will effect your availability for new clients, but will not affect currently scheduled lessons. Do not make changes here for temporary changes.</p>
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Day of the Week </TableCell>
-            <TableCell align="right">Start Time</TableCell>
-            <TableCell align="right">End Time</TableCell>
-            <TableCell align="right">Action</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {teacher.week.map(weekday => (
-            <TableRow key={weekday.id}>
-              <TableCell component="th" scope="row">
-                {`${weekday.day_of_week}s`}
-              </TableCell>
-              <TableCell align="right">{moment(weekday.start_time, 'HH:mm').format('h:mm A')}</TableCell>
-              <TableCell align="right">{moment(weekday.end_time, 'HH:mm').format('h:mm A')}</TableCell>
-              <TableCell align="right">
-                <MoreVert week={weekday} deleteTeacherWeek={deleteTeacherWeek} />
-              </TableCell>
+      <Typography variant={'h4'} gutterBottom>Weekly Work Schedule</Typography>
+      <p>These are the regular hours you are available to teach. Chaning these hours will effect your availability for new clients, but will not affect currently scheduled lessons. Do not make changes here for temporary changes.</p>
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Day of the Week </TableCell>
+              <TableCell align="right">Start Time</TableCell>
+              <TableCell align="right">End Time</TableCell>
+              <TableCell align="right">Action</TableCell>
             </TableRow>
-          ))}
-          <TableRow>
-            <TableCell component="th" scope="row">
-              <IconButton>
-                <AddTeacherWeekModal days={unlistedDays}/>
-              </IconButton>
-            </TableCell>
-            <TableCell />
-            <TableCell />
-            <TableCell />
-          </TableRow>
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {teacher.week.map(weekday => (
+              <TableRow key={weekday.id}>
+                <TableCell component="th" scope="row">
+                  {`${weekday.day_of_week}s`}
+                </TableCell>
+                <TableCell align="right">{moment(weekday.start_time, 'HH:mm').format('h:mm A')}</TableCell>
+                <TableCell align="right">{moment(weekday.end_time, 'HH:mm').format('h:mm A')}</TableCell>
+                <TableCell align="right">
+                  <MoreVert week={weekday} deleteTeacherWeek={deleteTeacherWeek} />
+                </TableCell>
+              </TableRow>
+            ))}
+            <TableRow>
+              <TableCell component="th" scope="row">
+                <IconButton>
+                  <AddTeacherWeekModal days={unlistedDays}/>
+                </IconButton>
+              </TableCell>
+              <TableCell />
+              <TableCell />
+              <TableCell />
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
   </Container>
   )
 }
