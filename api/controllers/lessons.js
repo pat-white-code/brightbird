@@ -7,6 +7,7 @@ const getLessonsByTeacherDate = require('./modules/lessons/getLessonsByTeacherDa
 const getLessonsByUser = require('./modules/lessons/getLessonsByUser');
 const deleteLessonsBySub = require('./modules/lessons/deleteLessonsBySub');
 const getLessonsByTeacher = require('./modules/lessons/getLessonsByTeacher');
+const deleteLesson = require('./modules/lessons/deleteLesson');
 
 module.exports = {
   takeAttendance,
@@ -17,5 +18,6 @@ module.exports = {
   getLessonsByTeacherDate,
   getLessonsByUser,
   deleteLessonsBySub,
-  getLessonsByTeacher
+  getLessonsByTeacher,
+  deleteLesson
 }

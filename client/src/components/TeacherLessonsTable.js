@@ -16,12 +16,12 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import moment from 'moment';
-import { Button } from '@material-ui/core';
+import TeacherLessonsActions from './TeacherLessonsActions';
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
     flexShrink: 0,
-    width: 700
+    // width: 700
     // marginLeft: theme.spacing(2.5),
   },
 }));
@@ -87,7 +87,7 @@ TablePaginationActions.propTypes = {
 
 const useStyles2 = makeStyles({
   table: {
-    minWidth: 500,
+    // minWidth: 500,
   },
 });
 
@@ -115,9 +115,9 @@ export default function TeacherLessonsTable(props) {
       <Table className={classes.table} aria-label="custom pagination table">
       <TableHead>
           <TableRow>
+            <TableCell align="center">Student</TableCell>
             <TableCell align="center">Date</TableCell>
             <TableCell align="center">Time</TableCell>
-            <TableCell align="center">Student</TableCell>
             <TableCell align="center">Lesson Package</TableCell>
             <TableCell align="center">Action</TableCell>
           </TableRow>
@@ -129,21 +129,19 @@ export default function TeacherLessonsTable(props) {
           ).map((lesson) => (
             <TableRow key={lessons.id}>
               <TableCell component="th" scope="row">
-                {moment(lesson.day_time, 'YYYY-MM-DDTHH:mm:ss').format('dddd MMMM DD')}
+                {`${lesson.first_name} ${lesson.last_name}`}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="center">
+                {moment(lesson.day_time, 'YYYY-MM-DDTHH:mm:ss').format('dddd MMMM D')}
               </TableCell>
               <TableCell style={{ width: 160 }} align="center">
                 {moment(lesson.day_time, 'YYYY-MM-DDTHH:mm:ss').format('h:mm a')}
               </TableCell>
               <TableCell style={{ width: 160 }} align="center">
-                {`${lesson.first_name} ${lesson.last_name}`}
+                {`${lesson.duration}-Min ${lesson.instrument_name}`} 
               </TableCell>
               <TableCell style={{ width: 160 }} align="center">
-                {`${lesson.duration}-Min ${lesson.instrument}`} 
-              </TableCell>
-              <TableCell style={{ width: 160 }} align="center">
-                <Button>
-                  Edit
-                </Button>
+                <TeacherLessonsActions lesson={lesson} />
               </TableCell>
             </TableRow>
           ))}

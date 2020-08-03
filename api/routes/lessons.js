@@ -12,5 +12,7 @@ router.get('/teacher/:teacherId', controller.getLessonsByTeacher);
 router.put('/:lessonId/attendance', controller.takeAttendance);
 router.put('/attendance/bulk', controller.bulkTakeAttendance);
 
+router.delete('/delete/:lessonId', controller.deleteLesson);
+
 
 module.exports = router;
