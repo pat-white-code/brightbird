@@ -16,6 +16,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import moment from 'moment';
+import { Button } from '@material-ui/core';
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
@@ -90,7 +91,7 @@ const useStyles2 = makeStyles({
   },
 });
 
-export default function UserLessonsTable(props) {
+export default function TeacherLessonsTable(props) {
   const { lessons } = props;
   // const lessons = [1, 2, 3];
   console.log('LESSONS', lessons)
@@ -118,8 +119,7 @@ export default function UserLessonsTable(props) {
             <TableCell align="center">Time</TableCell>
             <TableCell align="center">Student</TableCell>
             <TableCell align="center">Lesson Package</TableCell>
-            <TableCell align="center">Price</TableCell>
-            <TableCell align="center">Teacher</TableCell>
+            <TableCell align="center">Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -135,16 +135,15 @@ export default function UserLessonsTable(props) {
                 {moment(lesson.day_time, 'YYYY-MM-DDTHH:mm:ss').format('h:mm a')}
               </TableCell>
               <TableCell style={{ width: 160 }} align="center">
-                {`${lesson.student_first_name} ${lesson.student_last_name}`}
+                {`${lesson.first_name} ${lesson.last_name}`}
               </TableCell>
               <TableCell style={{ width: 160 }} align="center">
                 {`${lesson.duration}-Min ${lesson.instrument}`} 
               </TableCell>
               <TableCell style={{ width: 160 }} align="center">
-                <em>${`${lesson.price}`}</em> 
-              </TableCell>
-              <TableCell style={{ width: 160 }} align="center">
-                {`${lesson.teacher_first_name} ${lesson.teacher_last_name}`}
+                <Button>
+                  Edit
+                </Button>
               </TableCell>
             </TableRow>
           ))}
