@@ -7,12 +7,13 @@ const TeacherLessons = (props) => {
     lessons, 
     getLessonsByTeacher, 
     subsUpdatedAt,
-    teacherId
+    teacherId,
+    lessonsUpdatedAt
   } = props;
 
   useEffect(()=>{
     getLessonsByTeacher(teacherId)
-  }, [teacherId, subsUpdatedAt])
+  }, [teacherId, subsUpdatedAt, lessonsUpdatedAt])
   return (
     <div>
       <Container>

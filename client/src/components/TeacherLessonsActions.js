@@ -5,7 +5,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import IconButton from '@material-ui/core/IconButton';
 
 const TeacherLessonsActions = props => {
-  // const {deleteTeacherWeek, week} = props;
+  const {deleteLesson, lesson} = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -18,8 +18,7 @@ const TeacherLessonsActions = props => {
 
   const handleDelete = () => {
     setAnchorEl(null);
-    deleteTeacherWeek(week.id)
-    // delete code here
+    deleteLesson(lesson.id)
   };
 
   return (
