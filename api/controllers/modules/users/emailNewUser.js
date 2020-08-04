@@ -5,7 +5,7 @@ const moment = require('moment');
 require('dotenv').config();
 
 const emailNewUser = (req, res) => {
-  
+  const { email, firstName, lastName } = req.body;
   async function main() {
 
     let output = `
@@ -28,8 +28,8 @@ const emailNewUser = (req, res) => {
     // send mail with defined transport object
     let info = await transporter.sendMail({
       from: "BrightBird Music <no-reply@brightbirdmusic.com>", // sender address
-      to: user.email, // list of receivers
-      subject: `Lesson Confirmation`, // Subject line
+      to: email, // list of receivers
+      subject: `Welcome to Brightbird, ${firstName}!`, // Subject line
       text: "Subscription info", // plain text body
       html: output // html body
     });
@@ -44,8 +44,8 @@ const emailNewUser = (req, res) => {
   }
   
   main().then(()=>{
-    res.status(200).send("Message sent")
+    return res.status(200).json({message: 'Email Sent.', id: req.body.userId})
   }).catch(console.error);
 }
 
-module.exports = mailTest;
+module.exports = emailNewUser;

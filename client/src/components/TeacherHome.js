@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ViewInstruments from '../containers/ViewInstruments';
 import { Container, Typography } from '@material-ui/core';
 import EditServices from './EditServices';
@@ -15,7 +15,11 @@ const TeacherHome = (props) => {
   //     'border': '1px red solid'
   //   }
   // }
-  const {teacher} = props;
+  const {teacher, getTeacherInfo} = props;
+  useEffect(()=>{
+    getTeacherInfo(teacher.id)
+  }, [])
+
   return (
     <div className={styles['section']}>
       <Container>

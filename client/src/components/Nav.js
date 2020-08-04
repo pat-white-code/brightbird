@@ -35,11 +35,11 @@ export default function ButtonAppBar(props) {
           <Typography variant="h6" className={classes.title}>
             BrightBird.
           </Typography>
-          <Button color="inherit" className={classes.menuButton} onClick={()=>{
+          {/* <Button color="inherit" className={classes.menuButton} onClick={()=>{
             axios.get('/test')
               .then(res => console.log(res))
             }}>Test Server
-          </Button>
+          </Button> */}
           {user.isLoggedIn && (
             <>
               <Link to="/availability"><Button color="inherit" className={classes.menuButton}>Availability</Button></Link>
@@ -59,8 +59,8 @@ export default function ButtonAppBar(props) {
           {!user.isLoggedIn && !teacher.isLoggedIn && (
             <>
               <Link to="/teacher/signup"><Button color="inherit" className={classes.menuButton}>Teacher Signup</Button></Link>
-              <Link to="/login"><Button color="inherit" className={classes.menuButton}>Login</Button></Link>
               <Link to="/teacher/login"><Button color="inherit" className={classes.menuButton}>Teacher Login </Button></Link>
+              <Link to="/login"><Button color="inherit" className={classes.menuButton}>Login</Button></Link>
               <Link to="/signup/parent"><Button color="secondary" variant='contained'>Sign up Free</Button></Link>
             </>
           )}

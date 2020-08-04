@@ -6,7 +6,7 @@ const { handleSQLError } = require('../../../sql/error');
 
 const saltRounds = 10
 
-const createUser = (req, res) => {
+const createUser = (req, res, next) => {
   const { firstName, lastName, email, password } = req.body
   let sql = "INSERT INTO clients (first_name, last_name, email, password) VALUES (?, ?, ?, ?)"
 
@@ -19,7 +19,9 @@ const createUser = (req, res) => {
         if (err.code === 'ER_DUP_ENTRY') return res.status(409).send('Email Address is taken')
         return handleSQLError(res, err)
       }
-      return res.json({message: 'User Created.', id: result.insertId})
+      req.body.userId = result.insertId;
+      // return res.json({message: 'User Created.', id: result.insertId})
+      next();
     })
   })
 }
