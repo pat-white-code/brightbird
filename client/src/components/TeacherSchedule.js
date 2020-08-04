@@ -12,7 +12,7 @@ const TeacherSchedule = props => {
   return (
     <div>
       <Container>
-        <Typography variant={'h4'} gutterBottom>Current Schedule</Typography>
+        <Typography variant={'h4'} gutterBottom>Current Subscriptions</Typography>
         <TeacherSubsTable subs={subs} />
       </Container>
     </div>

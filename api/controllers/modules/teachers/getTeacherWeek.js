@@ -6,7 +6,7 @@ const getTeacherWeek = (req, res) => {
     SELECT teacher_week.*, day_of_week FROM teacher_week
     JOIN days
       ON days.id = day_id
-    WHERE teacher_id = 9;;
+    WHERE teacher_id = ?;
   `;
   
   sql = mysql.format(sql, [req.params.teacherId])

@@ -36,7 +36,6 @@ export default function ParentForm(props) {
     setEmail(e.target.value)
   }
   const handlePassword = e => {
-    console.log(password)
     setPassword(e.target.value)
   }
 

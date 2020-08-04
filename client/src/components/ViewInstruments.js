@@ -31,20 +31,21 @@ const ViewInstruments = (props) => {
 
   return(
     <Container>
-      <Typography variant={'h4'}>Instruments You Teach</Typography>
-      <Grid container spacing={3}>
-        {/* For each instrument map a card, then have a plus sign for new instrument */}
-        {teacher.instruments.map((instrument, index) => (
-          <Grid key={index} item sm={6} xs={12} md={4}>
-            <InstrumentCard instrument={instrument} />
-            {/* <InstrumentCard request={instrument} /> */}
-          </Grid>
-          ))}
-          <Grid item xs>
-            <AddInstrumentModal />
-          </Grid>
-      </Grid>
-      {/* <AddStudentModal /> */}
+      <Typography variant={'h4'} gutterBottom>Instruments You Teach</Typography>
+      <Container>
+        <Grid container spacing={3}>
+          {/* For each instrument map a card, then have a plus sign for new instrument */}
+          {teacher.instruments.map((instrument, index) => (
+            <Grid key={index} item sm={6} xs={12} md={4}>
+              <InstrumentCard instrument={instrument} />
+              {/* <InstrumentCard request={instrument} /> */}
+            </Grid>
+            ))}
+            <Grid item xs>
+              <AddInstrumentModal />
+            </Grid>
+        </Grid>
+      </Container>
     </Container>
   )
 }
