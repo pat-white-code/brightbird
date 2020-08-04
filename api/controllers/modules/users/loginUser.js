@@ -27,7 +27,8 @@ const loginUser = (req, res) => {
         res.json({
           msg: 'Login successful',
           token,
-          id: data.id
+          id: data.id,
+          email: data.email
         })
       })
   })

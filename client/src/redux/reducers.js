@@ -20,6 +20,8 @@ const user = (state = {}, action) => {
       return{...state, isLoggedIn: true, id:action.payload};
     case 'SETS_USER_ID':
       return {...state, id:action.payload};
+    case 'SETS_USER_EMAIL':
+      return {...state, email: action.payload}
     case 'INITIAL_ADDRESS':
       return{...state, addressId: action.payload};
     case 'GETS_USER_STUDENTS':

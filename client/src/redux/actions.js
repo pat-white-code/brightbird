@@ -16,6 +16,10 @@ export const setUserId = (userId) => {
   return {type: 'SETS_USER_ID', payload: userId}
 }
 
+export const setUserEmail = email => {
+  return {type: 'SETS_USER_EMAIL', payload: email}
+}
+
 const isLoggedIn = () => {
   return {type: 'USER_LOGS_IN'}
 }
@@ -25,11 +29,14 @@ export const userLogin = (user) => {
     axios.post('api/users/auth/login', user)
         .then(json => {
           console.log(json)
-          let userId = json.data.id
+          let userId = json.data.id;
+          let email = json.data.email;
+          console.log(email);
           dispatch(refreshUserAvails(userId));
           // document.cookie = "loggedIn=true;max-age=60*1000"
           dispatch(isLoggedIn());
           dispatch(setUserId(userId));
+          dispatch(setUserEmail(email));
           dispatch(getStudentsByUser(userId));
           dispatch(getAddressesByUser(userId));
           dispatch(getRequestsWithAvail(userId));
