@@ -8,26 +8,12 @@ import TeacherLessons from '../containers/TeacherLessons';
 import styles from '../styles/TeacherHome.module.css';
 
 const TeacherHome = (props) => {
-  // const styles = {
-  //   section: {
-  //     'padding': 40,
-  //     'margin': 50,
-  //     'border': '1px red solid'
-  //   }
-  // }
-  const {teacher, getTeacherInfo} = props;
-  useEffect(()=>{
-    getTeacherInfo(teacher.id)
-  }, [])
+  
+  const {teacher} = props;
 
   return (
     <div className={styles['section']}>
       <Container>
-        { teacher.info.first_name && (
-          <Typography variant={'h4'} gutterBottom>
-            {`Welcome, ${teacher.info.first_name}`}
-          </Typography>
-        )}
         <div className ={styles.section}>
           <ViewInstruments className={styles['section']} />
         </div>
